@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session dept. | Stay in Session</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="session dept. is a premium smoking accessories brand targeting Gen Z. Premium ceramic ashtrays, unrefined rolling papers, and high-quality session kits. Light up, slow down, stay in session.">
+    <meta name="keywords" content="session dept, smoking accessories, ashtrays, rolling papers, bongs, Gen Z brand, aesthetic smoking accessories">
+    <meta name="author" content="session dept.">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Custom Cursor (Note: Controlled dynamically inside styles.css / app.js to hide during active age gate dialog checks) -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-ring" id="custom-cursor-ring"></div>
+
+    <!-- ==========================================================================
+         Compliance Age Gate Modal
+         ========================================================================== -->
+    <dialog id="age-gate-dialog" class="age-gate-dialog">
+        <div class="age-gate-container">
+            <div class="age-gate-card" id="age-gate-card">
+                <div class="age-gate-logo">session dept<span class="logo-dot"></span></div>
+                <h1 class="age-gate-title">verification required</h1>
+                <p class="age-gate-text">You must be 21 years of age or older to enter the session. We don't rush, we session. Please confirm your age to proceed.</p>
+                <div class="age-gate-buttons">
+                    <button id="btn-confirm-age" class="btn-confirm-age" type="button">YEAH, I'M 21+</button>
+                    <button id="btn-reject-age" class="btn-reject-age" type="button">No, get me out of here</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- ==========================================================================
+         Main Navigation Header
+         ========================================================================== -->
+    <header class="main-header" id="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-link" id="logo-link">
+                <div class="logo-text">session dept<span class="logo-dot"></span></div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#shop" class="nav-link">Shop</a></li>
+                    <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
+                    <li><a href="#builder" class="nav-link">Session Builder</a></li>
+                    <li><a href="#newsletter" class="nav-link">Newsletter</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="header-btn" id="playlist-toggle-btn" title="Toggle Lo-fi Ambient Music">
+                    <i class="fa-solid fa-compact-disc"></i>
+                </button>
+                <button class="header-btn" id="cart-toggle-btn" title="Open Shopping Cart">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         Hero Section
+         ========================================================================== -->
+    <main>
+        <section class="hero-section" id="hero">
+            <div class="hero-content">
+                <div class="hero-tag">est. 2026 / premium gear</div>
+                <h2 class="hero-title">
+                    <span>light up.</span>
+                    <span class="hero-title-highlight">slow down.</span>
+                    <span>stay in session.</span>
+                </h2>
+                <p class="hero-description">We design smoking accessories for a new generation. Curated designs, high contrast aesthetics, and custom materials to make every break a real session.</p>
+                <div class="hero-cta-group">
+                    <a href="#shop" class="btn-primary">explore shop</a>
+                    <a href="#builder" class="btn-secondary">build your vibe</a>
+                </div>
+            </div>
+            
+            <div class="hero-collage">
+                <div class="collage-badge">stay in session</div>
+                <div class="collage-item collage-item-1">
+                    <img src="assets/images/smoke_silhouette.jpg" alt="Exhaling smoke forming session dept text" id="hero-img-1">
+                </div>
+                <div class="collage-item collage-item-2">
+                    <img src="assets/images/outdoor_sign.jpg" alt="session dept illuminated outdoor logo sign" id="hero-img-2">
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Endless Text Marquee Banner
+             ========================================================================== -->
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>not just a break, it's a session</span>
+                    <span class="marquee-star">★</span>
+                    <span>light up. slow down. stay in session.</span>
+                    <span class="marquee-star">★</span>
+                    <span>we don't rush, we session</span>
+                    <span class="marquee-star">★</span>
+                    <span>papers for your sessions</span>
+                    <span class="marquee-star">★</span>
+                    <span>inhale exhale repeat</span>
+                    <span class="marquee-star">★</span>
+                </div>
+                <div class="marquee-content">
+                    <span>not just a break, it's a session</span>
+                    <span class="marquee-star">★</span>
+                    <span>light up. slow down. stay in session.</span>
+                    <span class="marquee-star">★</span>
+                    <span>we don't rush, we session</span>
+                    <span class="marquee-star">★</span>
+                    <span>papers for your sessions</span>
+                    <span class="marquee-star">★</span>
+                    <span>inhale exhale repeat</span>
+                    <span class="marquee-star">★</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================================================
+             Brand Philosophy Section (Dark Mode theme)
+             ========================================================================== -->
+        <section class="philosophy-section reveal-on-scroll" id="philosophy">
+            <div class="philosophy-container">
+                <div class="philosophy-media">
+                    <img src="assets/images/lime_green_poster.jpg" alt="not just a break, it's a session typography poster" id="ph-poster-img">
+                </div>
+                <div class="philosophy-content">
+                    <div class="philosophy-tag">our manifesto</div>
+                    <h2 class="philosophy-title">we believe in the art of slowing down</h2>
+                    <p class="philosophy-text">In a world that never stops moving, taking a break has become a transactional act. session dept. is here to reclaim that moment. We create highly tactile, visual tools that turn a quick break into a conscious pause. Our gear is designed to look stunning on your coffee table and perform flawlessly in your hands.</p>
+                    
+                    <div class="philosophy-grid">
+                        <div class="philosophy-item-box">
+                            <div class="philosophy-item-num">01 / curation</div>
+                            <h3 class="philosophy-item-title">thoughtful design</h3>
+                            <p class="philosophy-item-text">Every shape, texture, and color is selected to match a clean, premium visual aesthetic.</p>
+                        </div>
+                        <div class="philosophy-item-box">
+                            <div class="philosophy-item-num">02 / quality</div>
+                            <h3 class="philosophy-item-title">premium build</h3>
+                            <p class="philosophy-item-text">Thick glass, heavy ceramic, and natural gumming. Built to satisfy and last.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Shop / Product Catalog Section
+             ========================================================================== -->
+        <section class="shop-section reveal-on-scroll" id="shop">
+            <div class="shop-header">
+                <div class="shop-title-group">
+                    <div class="shop-tag">selected artifacts</div>
+                    <h2 class="shop-title">curated gear for the sessions</h2>
+                </div>
+                <div class="shop-filter-bar">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="gear">Accessories</button>
+                    <button class="filter-btn" data-category="merch">Merch</button>
+                </div>
+            </div>
+            
+            <div class="product-grid" id="product-grid">
+                <!-- Product 1: Classic Green Ashtray -->
+                <div class="product-card" data-product-id="1" data-category="gear">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge">Best Seller</span>
+                        <img src="assets/images/ashtray_horizontal.jpg" alt="Ceramic green horizontal ashtray" class="product-img-primary has-hover">
+                        <img src="assets/images/ashtray_topdown.jpg" alt="Ceramic green topdown ashtray" class="product-img-hover">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>001 / CERAMIC</span>
+                            <span>IN STOCK</span>
+                        </div>
+                        <h3 class="product-title">Classic Green Ashtray</h3>
+                        <div class="product-price">₹2,499.00</div>
+                        <button class="btn-add-cart" onclick="addToCart(1)">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2: Sessions Rolling Papers -->
+                <div class="product-card" data-product-id="2" data-category="gear">
+                    <div class="product-image-wrapper">
+                        <img src="assets/images/papers_vertical.jpg" alt="session dept rolling papers pack" class="product-img-primary">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>002 / ROLLING PAPERS</span>
+                            <span>IN STOCK</span>
+                        </div>
+                        <h3 class="product-title">Sessions Rolling Papers (3-Pack)</h3>
+                        <div class="product-price">₹599.00</div>
+                        <button class="btn-add-cart" onclick="addToCart(2)">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Glass Session Bong -->
+                <div class="product-card" data-product-id="3" data-category="gear">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge">Premium</span>
+                        <img src="assets/images/bong_vertical.jpg" alt="Glass water pipe bong on table" class="product-img-primary">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>003 / BOROSILICATE</span>
+                            <span>LIMITED RUN</span>
+                        </div>
+                        <h3 class="product-title">Glass Session Bong</h3>
+                        <div class="product-price">₹8,999.00</div>
+                        <button class="btn-add-cart" onclick="addToCart(3)">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4: Session Dept. Merch & Sticker Pack -->
+                <div class="product-card" data-product-id="4" data-category="merch">
+                    <div class="product-image-wrapper">
+                        <img src="assets/images/tshirt_back.jpg" alt="session dept graphic tshirt back" class="product-img-primary has-hover">
+                        <img src="assets/images/stickers.jpg" alt="session dept holographic stickers sheet" class="product-img-hover">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>004 / MERCHANDISE</span>
+                            <span>IN STOCK</span>
+                        </div>
+                        <h3 class="product-title">Session Dept. Merch Tee & Sticker Pack</h3>
+                        <div class="product-price">₹3,499.00</div>
+                        <button class="btn-add-cart" onclick="addToCart(4)">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5: The Welcome Box Bundle -->
+                <div class="product-card" data-product-id="5" data-category="gear">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge">Bundle</span>
+                        <img src="assets/images/welcome_box.jpg" alt="Welcome box containing papers lighter pre-rolls" class="product-img-primary">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-meta">
+                            <span>005 / THE BOX BUNDLE</span>
+                            <span>SPECIAL VALUE</span>
+                        </div>
+                        <h3 class="product-title">The Welcome Box Bundle</h3>
+                        <div class="product-price">₹4,999.00</div>
+                        <button class="btn-add-cart" onclick="addToCart(5)">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Interactive Session Builder Widget Section
+             ========================================================================== -->
+        <section class="builder-section reveal-on-scroll" id="builder">
+            <div class="builder-container">
+                <div class="builder-header">
+                    <div class="builder-tag">custom configurator</div>
+                    <h2 class="builder-title">build your custom session vibe</h2>
+                    <p class="builder-description">Select your papers, lighter style, and sound vibe. We'll bundle them up in our customized session welcome box, curated just for you.</p>
+                </div>
+                
+                <div class="builder-grid">
+                    <div class="builder-steps">
+                        <!-- Step 1: Papers Selection -->
+                        <div class="builder-step">
+                            <div class="builder-step-header">
+                                <div class="builder-step-num">1</div>
+                                <h3 class="builder-step-title">Select Rolling Paper Type</h3>
+                            </div>
+                            <div class="builder-options">
+                                <div class="option-card selected" data-step="1" data-val="organic" data-price="0" data-label="Organic Hemp Papers">
+                                    <span class="option-icon"><i class="fa-solid fa-leaf"></i></span>
+                                    <span class="option-name">Organic Hemp</span>
+                                    <span class="option-price">+₹0.00</span>
+                                </div>
+                                <div class="option-card" data-step="1" data-val="rice" data-price="99" data-label="Ultra Thin Rice Papers">
+                                    <span class="option-icon"><i class="fa-solid fa-snowflake"></i></span>
+                                    <span class="option-name">Thin Rice</span>
+                                    <span class="option-price">+₹99.00</span>
+                                </div>
+                                <div class="option-card" data-step="1" data-val="black" data-price="199" data-label="Unrefined Black Papers">
+                                    <span class="option-icon"><i class="fa-solid fa-circle"></i></span>
+                                    <span class="option-name">Unrefined Black</span>
+                                    <span class="option-price">+₹199.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Ashtray Vibe -->
+                        <div class="builder-step">
+                            <div class="builder-step-header">
+                                <div class="builder-step-num">2</div>
+                                <h3 class="builder-step-title">Select Ashtray Vibe</h3>
+                            </div>
+                            <div class="builder-options">
+                                <div class="option-card selected" data-step="2" data-val="classic" data-price="0" data-label="Classic Ceramic Green Ashtray">
+                                    <span class="option-icon"><i class="fa-solid fa-bowl-food"></i></span>
+                                    <span class="option-name">Classic Ceramic</span>
+                                    <span class="option-price">+₹0.00</span>
+                                </div>
+                                <div class="option-card" data-step="2" data-val="topdown" data-price="399" data-label="Topdown Green Glass Ashtray">
+                                    <span class="option-icon"><i class="fa-solid fa-gem"></i></span>
+                                    <span class="option-name">Topdown Glass</span>
+                                    <span class="option-price">+₹399.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Soundtrack Choice -->
+                        <div class="builder-step">
+                            <div class="builder-step-header">
+                                <div class="builder-step-num">3</div>
+                                <h3 class="builder-step-title">Select Soundtrack Vibe</h3>
+                            </div>
+                            <div class="builder-options">
+                                <div class="option-card selected" data-step="3" data-val="lofi" data-price="0" data-label="Session Lo-Fi Playlist">
+                                    <span class="option-icon"><i class="fa-solid fa-music"></i></span>
+                                    <span class="option-name">Chill Lo-fi</span>
+                                    <span class="option-price">Free</span>
+                                </div>
+                                <div class="option-card" data-step="3" data-val="techno" data-price="0" data-label="Dark Techno Playlist">
+                                    <span class="option-icon"><i class="fa-solid fa-bolt"></i></span>
+                                    <span class="option-name">Deep Techno</span>
+                                    <span class="option-price">Free</span>
+                                </div>
+                                <div class="option-card" data-step="3" data-val="ambient" data-price="0" data-label="Ambient Vinyl Playlist">
+                                    <span class="option-icon"><i class="fa-solid fa-cloud"></i></span>
+                                    <span class="option-name">Vinyl Ambient</span>
+                                    <span class="option-price">Free</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Builder Preview Box -->
+                    <div class="builder-preview-panel">
+                        <h3 class="preview-title">your custom session bundle</h3>
+                        <div class="preview-receipt">
+                            <div class="receipt-row">
+                                <span class="receipt-label">Session Welcome Box Base</span>
+                                <span class="receipt-value">₹1,999.00</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label" id="preview-paper-label">Organic Hemp Papers</span>
+                                <span class="receipt-value" id="preview-paper-price">+₹0.00</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label" id="preview-ashtray-label">Classic Ceramic Green Ashtray</span>
+                                <span class="receipt-value" id="preview-ashtray-price">+₹0.00</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label" id="preview-sound-label">Chill Lo-fi Playlist</span>
+                                <span class="receipt-value">Free</span>
+                            </div>
+                            <div class="receipt-row total">
+                                <span>Subtotal</span>
+                                <span id="builder-total-price">₹1,999.00</span>
+                            </div>
+                        </div>
+                        <button class="btn-add-builder" id="btn-add-builder-to-cart">
+                            <i class="fa-solid fa-plus-circle"></i> Add Bundle to Cart
+                        </button>
+                        <p class="preview-note">Your box includes custom sticker sheet and a session matches booklet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Stickers / Merchandise Callout Section
+             ========================================================================== -->
+        <section class="merch-callout-section reveal-on-scroll">
+            <div class="merch-callout-container">
+                <div class="merch-callout-tag">limited releases</div>
+                <h2 class="merch-callout-title">we don't rush, we session</h2>
+                <p class="merch-callout-text">Rep the brand out in the wild. High weight premium graphic tees, waterproof holographic sticker sheets, and specialized accessories. Collectible drops made in limited numbers.</p>
+                <div class="merch-carousel">
+                    <div class="carousel-img-card">
+                        <img src="assets/images/stickers.jpg" alt="Session Dept stickers collection">
+                    </div>
+                    <div class="carousel-img-card">
+                        <img src="assets/images/tshirt_back.jpg" alt="Session Dept graphic t-shirt design">
+                    </div>
+                    <div class="carousel-img-card">
+                        <img src="assets/images/welcome_box.jpg" alt="Session Dept welcome gift pack">
+                    </div>
+                </div>
+                <a href="#shop" class="btn-primary">shop accessories & merch</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+         Lo-Fi Sound Player Floating Widget
+         ========================================================================== -->
+    <div class="floating-audio-player" id="floating-audio-player">
+        <div class="player-vinyl-wrapper">
+            <div class="vinyl-disc" id="vinyl-disc"></div>
+            <div class="vinyl-center"></div>
+        </div>
+        <div class="player-controls">
+            <button class="player-toggle-btn" id="player-toggle-btn" title="Play Ambient Music">
+                <i class="fa-solid fa-play" id="player-btn-icon"></i>
+            </button>
+            <div class="player-track-info">
+                <span class="player-track-title" id="player-track-title">lo-fi sessions vol. 1</span>
+                <span class="player-track-desc" id="player-track-desc">lo-fi chill beats</span>
+            </div>
+            <div class="player-visualizer" id="player-visualizer">
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
+            </div>
+        </div>
+        
+        <!-- Audio Stream Element (Royalty-free looping background track) -->
+        <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
+    </div>
+
+    <!-- ==========================================================================
+         Slide-out E-Commerce Cart Drawer
+         ========================================================================== -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3 class="cart-title">your session cart</h3>
+            <button class="btn-close-cart" id="btn-close-cart" title="Close Cart">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items-list" id="cart-items-list">
+            <!-- Dynamic Cart Items Generated via JS -->
+            <p class="cart-empty-message">Your cart is currently empty. Get ready for the session.</p>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Shipping</span>
+                <span>FREE</span>
+            </div>
+            <div class="cart-summary-row total">
+                <span>Total</span>
+                <span id="cart-total-price">₹0.00</span>
+            </div>
+            <button class="btn-checkout" id="btn-checkout">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         Checkout Completion Dialog (Modal)
+         ========================================================================== -->
+    <dialog id="checkout-dialog" class="checkout-dialog">
+        <span class="checkout-dialog-icon"><i class="fa-solid fa-circle-check" style="color: var(--color-lime);"></i></span>
+        <h2 class="checkout-dialog-title">order confirmed</h2>
+        <p class="checkout-dialog-text">Nice! Your session materials are locked in. A confirmation email and tracking link have been sent to your device. Stay in session.</p>
+        <button class="btn-close-checkout" id="btn-close-checkout">SWEET</button>
+    </dialog>
+
+    <!-- ==========================================================================
+         Footer & Newsletter Registration Section
+         ========================================================================== -->
+    <footer class="footer-section">
+        <!-- Newsletter Box -->
+        <div class="newsletter-block" id="newsletter">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">stay in <span>session</span></h2>
+                <p class="newsletter-desc">Subscribe to get secret drop notifications, lo-fi session playlists, and access to members-only product collections.</p>
+            </div>
+            <div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="newsletter-input-wrapper">
+                        <input type="email" class="newsletter-input" placeholder="enter your email address" required aria-label="Email Address">
+                    </div>
+                    <button class="btn-subscribe" type="submit">SUBSCRIBE</button>
+                </form>
+                <div class="newsletter-feedback" id="newsletter-feedback"></div>
+            </div>
+        </div>
+
+        <!-- Secondary links -->
+        <div class="footer-nav-block">
+            <div class="footer-brand-info">
+                <a href="#" class="footer-logo">session dept<span class="logo-dot"></span></a>
+                <p class="footer-tagline">Making smoking accessories for a modern, creative generation. Slowing down, in style.</p>
+                <div class="footer-socials">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="footer-col-title">explore</h3>
+                <ul class="footer-links-list">
+                    <li><a href="#shop" class="footer-link">Shop All</a></li>
+                    <li><a href="#philosophy" class="footer-link">Philosophy</a></li>
+                    <li><a href="#builder" class="footer-link">Session Builder</a></li>
+                    <li><a href="#newsletter" class="footer-link">New Drops</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer-col-title">support</h3>
+                <ul class="footer-links-list">
+                    <li><a href="#" class="footer-link">F.A.Q.</a></li>
+                    <li><a href="#" class="footer-link">Shipping & Returns</a></li>
+                    <li><a href="#" class="footer-link">Care Guide</a></li>
+                    <li><a href="#" class="footer-link">Wholesale</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer-col-title">contact</h3>
+                <div class="footer-contact-info">
+                    <p>Got questions or feedback?</p>
+                    <p>Shoot us a text or email:</p>
+                    <p>Email: <span>sessions@sessiondept.com</span></p>
+                    <p>Direct: <span>+91 9102395579</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright / Legal credits -->
+        <div class="footer-credits">
+            <div class="credits-container">
+                <div class="credits-text">&copy; 2026 session dept. all rights reserved. stay in <span>session</span>.</div>
+                <div class="credits-links">
+                    <a href="#" class="credits-link">privacy policy</a>
+                    <a href="#" class="credits-link">terms of service</a>
+                    <a href="#" class="credits-link">compliance 21+</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         Sleek Live Chat Widget (Tawk.to inspired auto-bot)
+         ========================================================================== -->
+    <div class="chat-widget" id="chat-widget">
+        <!-- Chat Bubble Button -->
+        <button class="chat-bubble" id="chat-bubble" title="Open Session Support Chat">
+            <i class="fa-solid fa-comments"></i>
+            <span class="chat-badge" id="chat-badge">1</span>
+        </button>
+        
+        <!-- Chat Window Box -->
+        <div class="chat-window" id="chat-window">
+            <!-- Header -->
+            <div class="chat-header-bar">
+                <div class="chat-agent-info">
+                    <div class="chat-agent-avatar">SD</div>
+                    <div class="chat-agent-status">
+                        <span class="chat-agent-name">Session Support</span>
+                        <span class="chat-status-text"><span class="chat-status-dot"></span>Online</span>
+                    </div>
+                </div>
+                <button class="chat-minimize-btn" id="chat-minimize-btn" title="Minimize Chat">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+            </div>
+            
+            <!-- Messages List -->
+            <div class="chat-messages-area" id="chat-messages-area">
+                <!-- Welcome greeting will be loaded dynamically via JS with a delay -->
+            </div>
+            
+            <!-- Input Bar -->
+            <form class="chat-input-bar" id="chat-input-form">
+                <input type="text" id="chat-user-input" class="chat-input-field" placeholder="ask about shipping, papers, bong..." required autocomplete="off">
+                <button type="submit" class="chat-send-btn" title="Send Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
