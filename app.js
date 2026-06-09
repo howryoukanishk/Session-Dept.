@@ -495,6 +495,8 @@ function initAmbientPlayer() {
     const vinyl = document.getElementById("vinyl-disc");
     const visualizerBars = document.querySelectorAll(".visualizer-bar");
     const playerCapsule = document.getElementById("floating-audio-player");
+    const prevBtn = document.getElementById("player-prev-btn");
+    const nextBtn = document.getElementById("player-next-btn");
     const prevBtnMobile = document.getElementById("player-prev-btn-mobile");
     const nextBtnMobile = document.getElementById("player-next-btn-mobile");
     const progressBarMobile = document.getElementById("player-progress-bar-mobile");
@@ -540,68 +542,60 @@ function initAmbientPlayer() {
         }
     });
 
-    // Skip controls for mobile audio player
+    // Helper to switch audio tracks
+    function changeTrack(direction) {
+        currentTrackIndex = (currentTrackIndex + direction + playlistKeys.length) % playlistKeys.length;
+        const trackKey = playlistKeys[currentTrackIndex];
+        
+        // Sync selection in builder Config
+        const playlist = PLAYLISTS[trackKey];
+        if (playlist) {
+            builderConfig.sound = { val: trackKey, name: playlist.title };
+        }
+        
+        // Sync desktop builder UI
+        document.querySelectorAll(`.option-card[data-step="3"]`).forEach(c => {
+            if (c.dataset.val === trackKey) {
+                c.classList.add("selected");
+            } else {
+                c.classList.remove("selected");
+            }
+        });
+
+        syncPlaylistWithBuilder(trackKey);
+        updateBuilderReceipt();
+        if (typeof updateMobileBuilderUI === "function") {
+            updateMobileBuilderUI();
+        }
+        if (typeof renderMobileStep === "function") {
+            renderMobileStep(currentMobileStep);
+        }
+    }
+
+    // Skip controls for both desktop and mobile players
+    if (prevBtn) {
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            changeTrack(-1);
+        });
+    }
     if (prevBtnMobile) {
         prevBtnMobile.addEventListener("click", (e) => {
             e.stopPropagation();
-            currentTrackIndex = (currentTrackIndex - 1 + playlistKeys.length) % playlistKeys.length;
-            const trackKey = playlistKeys[currentTrackIndex];
-            
-            // Sync selection in builder Config
-            const playlist = PLAYLISTS[trackKey];
-            if (playlist) {
-                builderConfig.sound = { val: trackKey, name: playlist.title };
-            }
-            
-            // Sync desktop builder UI
-            document.querySelectorAll(`.option-card[data-step="3"]`).forEach(c => {
-                if (c.dataset.val === trackKey) {
-                    c.classList.add("selected");
-                } else {
-                    c.classList.remove("selected");
-                }
-            });
-
-            syncPlaylistWithBuilder(trackKey);
-            updateBuilderReceipt();
-            if (typeof updateMobileBuilderUI === "function") {
-                updateMobileBuilderUI();
-            }
-            if (typeof renderMobileStep === "function") {
-                renderMobileStep(currentMobileStep);
-            }
+            changeTrack(-1);
         });
     }
 
+    if (nextBtn) {
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            changeTrack(1);
+        });
+    }
     if (nextBtnMobile) {
         nextBtnMobile.addEventListener("click", (e) => {
             e.stopPropagation();
-            currentTrackIndex = (currentTrackIndex + 1) % playlistKeys.length;
-            const trackKey = playlistKeys[currentTrackIndex];
-
-            // Sync selection in builder Config
-            const playlist = PLAYLISTS[trackKey];
-            if (playlist) {
-                builderConfig.sound = { val: trackKey, name: playlist.title };
-            }
-
-            // Sync desktop builder UI
-            document.querySelectorAll(`.option-card[data-step="3"]`).forEach(c => {
-                if (c.dataset.val === trackKey) {
-                    c.classList.add("selected");
-                } else {
-                    c.classList.remove("selected");
-                }
-            });
-
-            syncPlaylistWithBuilder(trackKey);
-            updateBuilderReceipt();
-            if (typeof updateMobileBuilderUI === "function") {
-                updateMobileBuilderUI();
-            }
-            if (typeof renderMobileStep === "function") {
-                renderMobileStep(currentMobileStep);
-            }
+            changeTrack(1);
         });
     }
 
