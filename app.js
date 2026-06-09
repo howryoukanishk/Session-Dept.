@@ -28,6 +28,26 @@ const PLAYLISTS = {
     ambient: { title: "ambient vinyl sessions", desc: "relaxing crackle ambient", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" }
 };
 
+// Mobile Builder Configuration
+let currentMobileStep = 1;
+const mobileOptions = {
+    1: [
+        { val: "organic", label: "Organic Hemp Papers", price: 0.00, img: "assets/images/papers_vertical-mobile.webp", desc: "slow-burning, organic hemp fibers" },
+        { val: "rice", label: "Ultra Thin Rice Papers", price: 99.00, img: "assets/images/papers_vertical-mobile.webp", desc: "ultra-thin rice paper for clean taste" },
+        { val: "black", label: "Unrefined Black Papers", price: 199.00, img: "assets/images/papers_vertical-mobile.webp", desc: "unrefined double pressed black papers" }
+    ],
+    2: [
+        { val: "classic", label: "Classic Ceramic Green Ashtray", price: 0.00, img: "assets/images/ashtray_horizontal-mobile.webp", desc: "signature heavy green glaze ceramic" },
+        { val: "topdown", label: "Topdown Green Glass Ashtray", price: 399.00, img: "assets/images/ashtray_topdown-mobile.webp", desc: "hand-blown borosilicate glass art piece" }
+    ],
+    3: [
+        { val: "lofi", label: "Session Lo-Fi Playlist", price: 0.00, img: "assets/images/smoke_silhouette-mobile.webp", desc: "chill lo-fi beats to set the mood" },
+        { val: "techno", label: "Dark Techno Playlist", price: 0.00, img: "assets/images/smoke_silhouette-mobile.webp", desc: "deep melodic techno sessions" },
+        { val: "ambient", label: "Ambient Vinyl Playlist", price: 0.00, img: "assets/images/smoke_silhouette-mobile.webp", desc: "relaxing crackle ambient vinyl sounds" }
+    ]
+};
+
+
 // --- Safe Storage Helpers (prevents SecurityError in sandboxes or local files) ---
 function safeGetLocal(key) {
     try {
@@ -77,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollReveal();
     initNewsletterForm();
     initMobileNav();
+    initMobileBuilder();
 
     // Defer Chat Widget initialization until user interaction or a 10s timeout
     let chatLoaded = false;
@@ -406,6 +427,12 @@ function initSessionBuilder() {
             }
 
             updateBuilderReceipt();
+            if (typeof updateMobileBuilderUI === "function") {
+                updateMobileBuilderUI();
+            }
+            if (typeof renderMobileStep === "function") {
+                renderMobileStep(currentMobileStep);
+            }
         });
     });
 
@@ -455,6 +482,9 @@ function updateBuilderReceipt() {
 // ==========================================================================
 // 5. Ambient Sound Player Functionality
 // ==========================================================================
+let currentTrackIndex = 0;
+const playlistKeys = ["lofi", "techno", "ambient"];
+
 function initAmbientPlayer() {
     const audio = document.getElementById("ambient-audio");
     const toggleBtn = document.getElementById("player-toggle-btn");
@@ -463,52 +493,151 @@ function initAmbientPlayer() {
     const vinyl = document.getElementById("vinyl-disc");
     const visualizerBars = document.querySelectorAll(".visualizer-bar");
     const playerCapsule = document.getElementById("floating-audio-player");
+    const prevBtn = document.getElementById("player-prev-btn");
+    const nextBtn = document.getElementById("player-next-btn");
+    const progressBarMobile = document.getElementById("player-progress-bar-mobile");
+    const timelineMobile = document.querySelector(".player-timeline-mobile");
 
     if (!audio || !toggleBtn) return;
 
     // Keep floating capsule hidden slightly after loading, then show
-    setTimeout(() => {
-        playerCapsule.classList.remove("hidden");
-    }, 1500);
+    if (playerCapsule) {
+        setTimeout(() => {
+            playerCapsule.classList.remove("hidden");
+        }, 1500);
+    }
 
     // Sync toggles
     toggleBtn.addEventListener("click", () => toggleAudioPlayback());
-    headerToggleBtn.addEventListener("click", () => toggleAudioPlayback());
+    if (headerToggleBtn) {
+        headerToggleBtn.addEventListener("click", () => toggleAudioPlayback());
+    }
 
     // Expand/Collapse Floating Audio Player on mobile
-    const playerVinyl = playerCapsule.querySelector(".player-vinyl-wrapper");
-    if (playerVinyl) {
-        playerVinyl.addEventListener("click", (e) => {
-            if (window.innerWidth < 768) {
-                e.stopPropagation();
-                playerCapsule.classList.toggle("expanded");
-            }
-        });
+    if (playerCapsule) {
+        const playerVinyl = playerCapsule.querySelector(".player-vinyl-wrapper");
+        if (playerVinyl) {
+            playerVinyl.addEventListener("click", (e) => {
+                if (window.innerWidth < 768) {
+                    e.stopPropagation();
+                    playerCapsule.classList.toggle("expanded");
+                }
+            });
+        }
     }
 
     // Collapse player on click outside
     document.addEventListener("click", (e) => {
-        if (window.innerWidth < 768 && playerCapsule.classList.contains("expanded") && !playerCapsule.contains(e.target)) {
+        if (playerCapsule && window.innerWidth < 768 && playerCapsule.classList.contains("expanded") && !playerCapsule.contains(e.target)) {
             playerCapsule.classList.remove("expanded");
         }
     });
 
+    // Skip controls for mobile audio player
+    if (prevBtn) {
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentTrackIndex = (currentTrackIndex - 1 + playlistKeys.length) % playlistKeys.length;
+            const trackKey = playlistKeys[currentTrackIndex];
+            
+            // Sync selection in builder Config
+            const playlist = PLAYLISTS[trackKey];
+            if (playlist) {
+                builderConfig.sound = { val: trackKey, name: playlist.title };
+            }
+            
+            // Sync desktop builder UI
+            document.querySelectorAll(`.option-card[data-step="3"]`).forEach(c => {
+                if (c.dataset.val === trackKey) {
+                    c.classList.add("selected");
+                } else {
+                    c.classList.remove("selected");
+                }
+            });
+
+            syncPlaylistWithBuilder(trackKey);
+            updateBuilderReceipt();
+            if (typeof updateMobileBuilderUI === "function") {
+                updateMobileBuilderUI();
+            }
+            if (typeof renderMobileStep === "function") {
+                renderMobileStep(currentMobileStep);
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentTrackIndex = (currentTrackIndex + 1) % playlistKeys.length;
+            const trackKey = playlistKeys[currentTrackIndex];
+
+            // Sync selection in builder Config
+            const playlist = PLAYLISTS[trackKey];
+            if (playlist) {
+                builderConfig.sound = { val: trackKey, name: playlist.title };
+            }
+
+            // Sync desktop builder UI
+            document.querySelectorAll(`.option-card[data-step="3"]`).forEach(c => {
+                if (c.dataset.val === trackKey) {
+                    c.classList.add("selected");
+                } else {
+                    c.classList.remove("selected");
+                }
+            });
+
+            syncPlaylistWithBuilder(trackKey);
+            updateBuilderReceipt();
+            if (typeof updateMobileBuilderUI === "function") {
+                updateMobileBuilderUI();
+            }
+            if (typeof renderMobileStep === "function") {
+                renderMobileStep(currentMobileStep);
+            }
+        });
+    }
+
+    // Audio progress bar update (mobile timeline seekbar)
+    audio.addEventListener("timeupdate", () => {
+        if (audio.duration) {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            if (progressBarMobile) {
+                progressBarMobile.style.width = percent + "%";
+            }
+        }
+    });
+
+    // Seek on timeline click
+    if (timelineMobile) {
+        timelineMobile.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const rect = timelineMobile.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+            if (width > 0 && audio.duration) {
+                const percentage = clickX / width;
+                audio.currentTime = percentage * audio.duration;
+            }
+        });
+    }
+
     function toggleAudioPlayback() {
         if (audio.paused) {
             audio.play().then(() => {
-                btnIcon.className = "fa-solid fa-pause";
-                vinyl.classList.add("playing");
+                if (btnIcon) btnIcon.className = "fa-solid fa-pause";
+                if (vinyl) vinyl.classList.add("playing");
                 visualizerBars.forEach(bar => bar.classList.add("playing"));
-                headerToggleBtn.classList.add("hovered");
+                if (headerToggleBtn) headerToggleBtn.classList.add("hovered");
             }).catch(err => {
                 console.log("Audio play blocked by browser. Wait for user interaction.", err);
             });
         } else {
             audio.pause();
-            btnIcon.className = "fa-solid fa-play";
-            vinyl.classList.remove("playing");
+            if (btnIcon) btnIcon.className = "fa-solid fa-play";
+            if (vinyl) vinyl.classList.remove("playing");
             visualizerBars.forEach(bar => bar.classList.remove("playing"));
-            headerToggleBtn.classList.remove("hovered");
+            if (headerToggleBtn) headerToggleBtn.classList.remove("hovered");
         }
     }
 }
@@ -521,16 +650,31 @@ function syncPlaylistWithBuilder(soundType) {
 
     if (!audio || !playlist) return;
 
+    // Update currentTrackIndex based on the selected playlist
+    const idx = playlistKeys.indexOf(soundType);
+    if (idx !== -1) {
+        currentTrackIndex = idx;
+    }
+
     const wasPlaying = !audio.paused;
 
     // Load new audio source
     audio.src = playlist.src;
-    titleEl.innerText = playlist.title;
-    descEl.innerText = playlist.desc;
+    if (titleEl) titleEl.innerText = playlist.title;
+    if (descEl) descEl.innerText = playlist.desc;
 
     // Replay if it was previously playing
     if (wasPlaying) {
-        audio.play().catch(e => console.log("Sound sync replay block: ", e));
+        audio.play().then(() => {
+            const btnIcon = document.getElementById("player-btn-icon");
+            const vinyl = document.getElementById("vinyl-disc");
+            const visualizerBars = document.querySelectorAll(".visualizer-bar");
+            const headerToggleBtn = document.getElementById("playlist-toggle-btn");
+            if (btnIcon) btnIcon.className = "fa-solid fa-pause";
+            if (vinyl) vinyl.classList.add("playing");
+            visualizerBars.forEach(bar => bar.classList.add("playing"));
+            if (headerToggleBtn) headerToggleBtn.classList.add("hovered");
+        }).catch(e => console.log("Sound sync replay block: ", e));
     }
 }
 
@@ -860,5 +1004,274 @@ function initMobileNav() {
         });
     });
 }
+
+// ==========================================================================
+// 11. Mobile Guided Step-by-Step Configurator Builder
+// ==========================================================================
+function initMobileBuilder() {
+    const mobileLayout = document.getElementById("mobile-builder-layout");
+    if (!mobileLayout) return; // Only run on pages where mobile builder layout is loaded (index.html)
+
+    const prevBtn = document.getElementById("mobile-builder-prev-btn");
+    const nextBtn = document.getElementById("mobile-builder-next-btn");
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            if (currentMobileStep > 1) {
+                goToMobileStep(currentMobileStep - 1);
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            if (currentMobileStep < 4) {
+                goToMobileStep(currentMobileStep + 1);
+            }
+        });
+    }
+
+    // Set up tabs click listeners
+    document.querySelectorAll(".mobile-step-tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+            const targetStep = parseInt(tab.dataset.step);
+            if (targetStep >= 1 && targetStep <= 4) {
+                goToMobileStep(targetStep);
+            }
+        });
+    });
+
+    // Summary drawer toggle click listener
+    const summaryToggle = document.getElementById("mobile-summary-toggle");
+    const summaryDrawer = document.getElementById("mobile-summary-drawer");
+    const summaryArrow = document.getElementById("mobile-summary-arrow");
+
+    if (summaryToggle && summaryDrawer) {
+        summaryToggle.addEventListener("click", () => {
+            summaryDrawer.classList.toggle("open");
+            if (summaryDrawer.classList.contains("open")) {
+                if (summaryArrow) summaryArrow.className = "fa-solid fa-chevron-down";
+            } else {
+                if (summaryArrow) summaryArrow.className = "fa-solid fa-chevron-up";
+            }
+        });
+    }
+
+    // Initial render
+    updateMobileBuilderUI();
+    goToMobileStep(1);
+}
+
+function goToMobileStep(step) {
+    currentMobileStep = step;
+    
+    // Toggle step panes visibility
+    document.querySelectorAll(".mobile-builder-step-pane").forEach((pane, i) => {
+        if (i + 1 === step) {
+            pane.classList.add("active");
+        } else {
+            pane.classList.remove("active");
+        }
+    });
+
+    // Toggle tab classes active state
+    document.querySelectorAll(".mobile-step-tab").forEach((tab, i) => {
+        if (i + 1 === step) {
+            tab.classList.add("active");
+        } else {
+            tab.classList.remove("active");
+        }
+    });
+
+    // Update controls buttons (back and next)
+    const prevBtn = document.getElementById("mobile-builder-prev-btn");
+    const nextBtn = document.getElementById("mobile-builder-next-btn");
+
+    if (prevBtn) {
+        if (step === 1) {
+            prevBtn.style.display = "none";
+        } else {
+            prevBtn.style.display = "flex";
+        }
+    }
+
+    if (nextBtn) {
+        if (step === 4) {
+            nextBtn.style.display = "none";
+        } else {
+            nextBtn.style.display = "flex";
+            nextBtn.innerHTML = `Next Step <i class="fa-solid fa-arrow-right"></i>`;
+        }
+    }
+
+    // Render step details
+    renderMobileStep(step);
+}
+
+function renderMobileStep(step) {
+    if (step === 4) {
+        const reviewSummary = document.getElementById("mobile-review-summary");
+        if (reviewSummary) {
+            reviewSummary.innerHTML = `
+                <div class="mobile-review-receipt" style="display: flex; flex-direction: column; gap: 12px;">
+                    <div class="receipt-row" style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+                        <span>Session Welcome Box Base</span>
+                        <span>₹1,999.00</span>
+                    </div>
+                    <div class="receipt-row" style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+                        <span>${builderConfig.paper.name}</span>
+                        <span>${builderConfig.paper.price === 0 ? "Included" : "+₹" + builderConfig.paper.price.toFixed(2)}</span>
+                    </div>
+                    <div class="receipt-row" style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+                        <span>${builderConfig.ashtray.name}</span>
+                        <span>${builderConfig.ashtray.price === 0 ? "Included" : "+₹" + builderConfig.ashtray.price.toFixed(2)}</span>
+                    </div>
+                    <div class="receipt-row" style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+                        <span>${builderConfig.sound.name}</span>
+                        <span>Included</span>
+                    </div>
+                    <div class="receipt-row total" style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 700; border-top: 1px solid var(--color-charcoal); padding-top: 10px; margin-top: 5px;">
+                        <span>Subtotal</span>
+                        <span>₹${(1999 + builderConfig.paper.price + builderConfig.ashtray.price).toFixed(2)}</span>
+                    </div>
+                </div>
+                <button class="btn-add-builder mobile-add-btn" id="mobile-add-builder-to-cart" style="width: 100%; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px; background-color: var(--color-lime); color: var(--color-charcoal); border: none; border-radius: var(--border-radius-sm); font-family: var(--font-mono); font-size: 1rem; font-weight: 700; cursor: pointer; min-height: 48px;">
+                    <i class="fa-solid fa-plus-circle"></i> Add Bundle to Cart
+                </button>
+                <p class="preview-note" style="font-size: 0.8rem; opacity: 0.7; margin-top: 12px; text-align: center;">Your box includes custom sticker sheet and a session matches booklet.</p>
+            `;
+            
+            // Bind click handler for review add to cart button
+            const mobileAddBtn = document.getElementById("mobile-add-builder-to-cart");
+            if (mobileAddBtn) {
+                mobileAddBtn.addEventListener("click", () => {
+                    const subtotal = BUILDER_BASE_PRICE + builderConfig.paper.price + builderConfig.ashtray.price;
+                    const name = `Session Vibe Box (${builderConfig.paper.val.toUpperCase()} + ${builderConfig.ashtray.val.toUpperCase()})`;
+                    
+                    cart.push({
+                        id: `custom-box-${Date.now()}`,
+                        name: name,
+                        price: subtotal,
+                        img: "assets/images/welcome_box.jpg",
+                        quantity: 1,
+                        isCustom: true
+                    });
+
+                    saveAndUpdateCart();
+                    openCartDrawer();
+                });
+            }
+        }
+        return;
+    }
+
+    const options = mobileOptions[step];
+    if (!options) return;
+
+    let selectedVal = "";
+    if (step === 1) selectedVal = builderConfig.paper.val;
+    else if (step === 2) selectedVal = builderConfig.ashtray.val;
+    else if (step === 3) selectedVal = builderConfig.sound.val;
+
+    const selectedOpt = options.find(o => o.val === selectedVal) || options[0];
+
+    // Render active choice card (large card)
+    const largeWrapper = document.getElementById(`mobile-large-card-wrapper-${step}`);
+    if (largeWrapper) {
+        largeWrapper.innerHTML = `
+            <div class="mobile-large-card">
+                <span class="product-badge" style="background-color: var(--color-lime); color: var(--color-charcoal); font-family: var(--font-mono); font-size: 0.65rem; padding: 4px 8px; border-radius: var(--border-radius-sm); font-weight: 700;">Active Choice</span>
+                <div class="mobile-card-img-wrapper">
+                    <img src="${selectedOpt.img}" alt="${selectedOpt.label}">
+                </div>
+                <h4 class="mobile-card-name">${selectedOpt.label}</h4>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-top: -4px; margin-bottom: 12px; font-family: var(--font-sans); text-align: center;">${selectedOpt.desc}</p>
+                <div class="mobile-card-price">${selectedOpt.price === 0 ? "Included" : "+₹" + selectedOpt.price.toFixed(2)}</div>
+                <button class="mobile-btn-select active" disabled style="background-color: var(--color-lime) !important; color: var(--color-charcoal); border-color: var(--color-lime); text-transform: uppercase;">Selected Choice</button>
+            </div>
+        `;
+    }
+
+    // Render smaller cards grid
+    const smallWrapper = document.getElementById(`mobile-small-cards-wrapper-${step}`);
+    if (smallWrapper) {
+        let gridHTML = "";
+        options.forEach(o => {
+            const isSelected = o.val === selectedVal;
+            gridHTML += `
+                <div class="mobile-small-card ${isSelected ? 'selected-item' : ''}" data-val="${o.val}" style="${isSelected ? 'border: 2px solid var(--color-lime);' : 'border: 1px solid var(--color-cream-border);'}">
+                    <div class="mobile-card-img-wrapper small">
+                        <img src="${o.img}" alt="${o.label}">
+                    </div>
+                    <h4 class="mobile-card-name" style="margin-top: 4px;">${o.label.replace("Papers", "").replace("Ashtray", "").replace("Playlist", "")}</h4>
+                    <div class="mobile-card-price" style="font-size: 0.8rem; font-family: var(--font-mono); font-weight: 700;">${o.price === 0 ? "Included" : "+₹" + o.price}</div>
+                </div>
+            `;
+        });
+        smallWrapper.innerHTML = gridHTML;
+
+        // Bind click events on small options cards
+        smallWrapper.querySelectorAll(".mobile-small-card").forEach(card => {
+            card.addEventListener("click", () => {
+                const val = card.dataset.val;
+                const opt = options.find(o => o.val === val);
+                if (opt) {
+                    if (step === 1) {
+                        builderConfig.paper = { val: opt.val, name: opt.label, price: opt.price };
+                    } else if (step === 2) {
+                        builderConfig.ashtray = { val: opt.val, name: opt.label, price: opt.price };
+                    } else if (step === 3) {
+                        builderConfig.sound = { val: opt.val, name: opt.label };
+                        syncPlaylistWithBuilder(opt.val);
+                    }
+
+                    // Sync desktop options cards UI highlight states
+                    document.querySelectorAll(`.option-card[data-step="${step}"]`).forEach(c => {
+                        if (c.dataset.val === opt.val) {
+                            c.classList.add("selected");
+                        } else {
+                            c.classList.remove("selected");
+                        }
+                    });
+
+                    updateBuilderReceipt();
+                    updateMobileBuilderUI();
+                    renderMobileStep(step);
+                }
+            });
+        });
+    }
+}
+
+function updateMobileBuilderUI() {
+    const summaryContent = document.getElementById("mobile-summary-content");
+    const summaryCount = document.getElementById("mobile-summary-count");
+
+    if (summaryCount) {
+        summaryCount.innerText = "3";
+    }
+
+    if (summaryContent) {
+        summaryContent.innerHTML = `
+            <div class="mobile-summary-row" style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                <span>Paper: ${builderConfig.paper.name}</span>
+                <span>${builderConfig.paper.price === 0 ? "Included" : "+₹" + builderConfig.paper.price.toFixed(2)}</span>
+            </div>
+            <div class="mobile-summary-row" style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                <span>Ashtray: ${builderConfig.ashtray.name}</span>
+                <span>${builderConfig.ashtray.price === 0 ? "Included" : "+₹" + builderConfig.ashtray.price.toFixed(2)}</span>
+            </div>
+            <div class="mobile-summary-row" style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                <span>Soundtrack: ${builderConfig.sound.name}</span>
+                <span>Included</span>
+            </div>
+            <div class="mobile-summary-row total" style="display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 700; border-top: 1px solid var(--color-charcoal-light); padding-top: 8px; margin-top: 4px; color: var(--color-lime);">
+                <span>Subtotal</span>
+                <span>₹${(1999 + builderConfig.paper.price + builderConfig.ashtray.price).toFixed(2)}</span>
+            </div>
+        `;
+    }
+}
+
 
 

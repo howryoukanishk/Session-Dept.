@@ -226,12 +226,27 @@
             <div class="vinyl-center" aria-hidden="true"></div>
         </div>
         <div class="player-controls">
+            <!-- Mobile Prev Button -->
+            <button class="player-nav-btn mobile-only-btn" id="player-prev-btn" aria-label="Previous Track">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+            
             <button class="player-toggle-btn" id="player-toggle-btn" title="Play Ambient Music" aria-label="Play Lo-fi music stream">
                 <i class="fa-solid fa-play" id="player-btn-icon"></i>
             </button>
+            
+            <!-- Mobile Next Button -->
+            <button class="player-nav-btn mobile-only-btn" id="player-next-btn" aria-label="Next Track">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+
             <div class="player-track-info">
                 <span class="player-track-title" id="player-track-title">lo-fi sessions vol. 1</span>
                 <span class="player-track-desc" id="player-track-desc">lo-fi chill beats</span>
+                <!-- Mobile Timeline Seekbar -->
+                <div class="player-timeline-mobile">
+                    <div class="player-progress-bar-mobile" id="player-progress-bar-mobile"></div>
+                </div>
             </div>
             <div class="player-visualizer" id="player-visualizer" aria-hidden="true">
                 <div class="visualizer-bar"></div>
@@ -422,5 +437,24 @@
             }, 5000);
         });
     </script>
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="index.html#shop" class="mobile-nav-item">
+            <i class="fa-solid fa-store"></i>
+            <span>Shop</span>
+        </a>
+        <a href="journal.html" class="mobile-nav-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Journal</span>
+        </a>
+        <a href="about.html" class="mobile-nav-item">
+            <i class="fa-solid fa-user"></i>
+            <span>Account</span>
+        </a>
+    </div>
 </body>
 </html>
