@@ -6,15 +6,65 @@
     <title>Contact Us | session dept.</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Get in touch with session dept. Send inquiries about orders, Wholesale partnerships, or drop details. Live support, email, and phone coordinates.">
-    <meta name="keywords" content="session dept, contact, customer support, wholesale smoking accessories, Patna, New Delhi">
+    <meta name="description" content="Get in touch with session dept. Send inquiries about order status, wholesaling partnerships, or drop releases. Live support, email, and phone coordinates.">
+    <meta name="keywords" content="session dept, contact, customer support, wholesale inquiries, Patna, New Delhi">
     <meta name="author" content="session dept.">
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://sessiondept.com/contact.html">
+    
+    <!-- Google Search Console Verification Placeholder -->
+    <meta name="google-site-verification" content="YOUR_GSC_VERIFICATION_TOKEN_HERE">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Contact Us | session dept.">
+    <meta property="og:description" content="Get in touch with us. Send order support or wholesale inquiries directly to the department.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sessiondept.com/contact.html">
+    <meta property="og:image" content="https://sessiondept.com/assets/images/outdoor_sign.webp">
+    <meta property="og:site_name" content="session dept.">
+    
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us | session dept.">
+    <meta name="twitter:description" content="Get in touch with us. Send order support or wholesale inquiries directly to the department.">
+    <meta name="twitter:image" content="https://sessiondept.com/assets/images/outdoor_sign.webp">
+    
+    <!-- Google Analytics Placeholder. Insert GA4 tracking ID (e.g., G-XXXXXXXXXX) here. -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data: Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://sessiondept.com/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "https://sessiondept.com/contact.html"
+      }]
+    }
+    </script>
 </head>
 <body>
 
@@ -25,15 +75,15 @@
     <!-- ==========================================================================
          Compliance Age Gate Modal
          ========================================================================== -->
-    <dialog id="age-gate-dialog" class="age-gate-dialog">
+    <dialog id="age-gate-dialog" class="age-gate-dialog" aria-label="Age Verification Gate">
         <div class="age-gate-container">
             <div class="age-gate-card" id="age-gate-card">
                 <div class="age-gate-logo">session dept<span class="logo-dot"></span></div>
                 <h1 class="age-gate-title">verification required</h1>
                 <p class="age-gate-text">You must be 21 years of age or older to enter the session. We don't rush, we session. Please confirm your age to proceed.</p>
                 <div class="age-gate-buttons">
-                    <button id="btn-confirm-age" class="btn-confirm-age" type="button">YEAH, I'M 21+</button>
-                    <button id="btn-reject-age" class="btn-reject-age" type="button">No, get me out of here</button>
+                    <button id="btn-confirm-age" class="btn-confirm-age" type="button" aria-label="Confirm age 21 or older">YEAH, I'M 21+</button>
+                    <button id="btn-reject-age" class="btn-reject-age" type="button" aria-label="Reject age and exit site">No, get me out of here</button>
                 </div>
             </div>
         </div>
@@ -44,27 +94,32 @@
          ========================================================================== -->
     <header class="main-header" id="main-header">
         <div class="header-container">
-            <a href="index.html" class="logo-link" id="logo-link">
+            <a href="index.html" class="logo-link" id="logo-link" aria-label="session dept. homepage">
                 <div class="logo-text">session dept<span class="logo-dot"></span></div>
             </a>
             
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
                 <ul class="nav-list">
                     <li><a href="index.html#shop" class="nav-link">Shop</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
                     <li><a href="index.html#builder" class="nav-link">Session Builder</a></li>
                     <li><a href="journal.html" class="nav-link">Journal</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
                     <li><a href="contact.html" class="nav-link active">Contact</a></li>
                 </ul>
             </nav>
             
             <div class="header-actions">
-                <button class="header-btn" id="playlist-toggle-btn" title="Toggle Lo-fi Ambient Music">
+                <button class="header-btn" id="playlist-toggle-btn" title="Toggle Lo-fi Ambient Music" aria-label="Toggle ambient background music">
                     <i class="fa-solid fa-compact-disc"></i>
                 </button>
-                <button class="header-btn" id="cart-toggle-btn" title="Open Shopping Cart">
+                <button class="header-btn" id="cart-toggle-btn" title="Open Shopping Cart" aria-label="View shopping cart">
                     <i class="fa-solid fa-shopping-bag"></i>
                     <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="header-btn mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="main-nav">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
@@ -92,30 +147,30 @@
                     <h2 class="contact-form-title">drop a message</h2>
                     <p class="contact-form-desc">Fill out the form below. We'll get back to you within 24 hours.</p>
                     
-                    <form class="contact-form-element" id="contact-us-form">
+                    <form class="contact-form-element" id="contact-us-form" aria-label="Contact Us Form">
                         <div class="form-group-row">
                             <div class="form-group">
                                 <label for="contact-name" class="form-label">your name</label>
-                                <input type="text" id="contact-name" class="form-input" placeholder="e.g. Rohan Sharma" required>
+                                <input type="text" id="contact-name" class="form-input" placeholder="e.g. Rohan Sharma" required autocomplete="name">
                             </div>
                             <div class="form-group">
                                 <label for="contact-email" class="form-label">email address</label>
-                                <input type="email" id="contact-email" class="form-input" placeholder="e.g. rohan@gmail.com" required>
+                                <input type="email" id="contact-email" class="form-input" placeholder="e.g. rohan@gmail.com" required autocomplete="email">
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="contact-subject" class="form-label">subject of inquiry</label>
-                            <input type="text" id="contact-subject" class="form-input" placeholder="e.g. Wholesale, order question, feedback..." required>
+                            <input type="text" id="contact-subject" class="form-input" placeholder="e.g. Wholesale, order question, feedback..." required autocomplete="off">
                         </div>
                         
                         <div class="form-group">
                             <label for="contact-message" class="form-label">your message</label>
-                            <textarea id="contact-message" class="form-textarea" placeholder="what's on your mind? let's session..." required></textarea>
+                            <textarea id="contact-message" class="form-textarea" placeholder="what's on your mind? let's session..." required aria-label="Write your message here"></textarea>
                         </div>
                         
-                        <button type="submit" class="btn-primary btn-form-submit">send message</button>
-                        <div id="contact-form-feedback" style="font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase; color: var(--color-charcoal); display: none;"></div>
+                        <button type="submit" class="btn-primary btn-form-submit" aria-label="Send your message to support">send message</button>
+                        <div id="contact-form-feedback" style="font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase; color: var(--color-charcoal); display: none;" aria-live="polite"></div>
                     </form>
                 </div>
 
@@ -123,27 +178,27 @@
                 <div class="contact-info-container">
                     <!-- WhatsApp / Phone Card -->
                     <div class="contact-card-box">
-                        <div class="contact-card-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-card-icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
                         <h3 class="contact-card-title">direct text & call</h3>
                         <p class="contact-card-text">
                             Reach our support line directly via WhatsApp or standard text:<br>
-                            <a href="tel:+919102395579">+91 9102395579</a>
+                            <a href="tel:+919102395579" aria-label="Call direct phone +91 9102395579">+91 9102395579</a>
                         </p>
                     </div>
 
                     <!-- Email Card -->
                     <div class="contact-card-box">
-                        <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-card-icon" aria-hidden="true"><i class="fa-solid fa-envelope"></i></div>
                         <h3 class="contact-card-title">email correspondence</h3>
                         <p class="contact-card-text">
                             Send wholesale, press, or custom session queries to:<br>
-                            <a href="mailto:sessions@sessiondept.com">sessions@sessiondept.com</a>
+                            <a href="mailto:sessions@sessiondept.com" aria-label="Email support desk">sessions@sessiondept.com</a>
                         </p>
                     </div>
 
                     <!-- HQ Card -->
                     <div class="contact-card-box">
-                        <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-card-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
                         <h3 class="contact-card-title">headquarters</h3>
                         <p class="contact-card-text">
                             <strong>New Delhi Office:</strong><br>
@@ -163,18 +218,18 @@
          ========================================================================== -->
     <div class="floating-audio-player" id="floating-audio-player">
         <div class="player-vinyl-wrapper">
-            <div class="vinyl-disc" id="vinyl-disc"></div>
-            <div class="vinyl-center"></div>
+            <div class="vinyl-disc" id="vinyl-disc" aria-hidden="true"></div>
+            <div class="vinyl-center" aria-hidden="true"></div>
         </div>
         <div class="player-controls">
-            <button class="player-toggle-btn" id="player-toggle-btn" title="Play Ambient Music">
+            <button class="player-toggle-btn" id="player-toggle-btn" title="Play Ambient Music" aria-label="Play Lo-fi music stream">
                 <i class="fa-solid fa-play" id="player-btn-icon"></i>
             </button>
             <div class="player-track-info">
                 <span class="player-track-title" id="player-track-title">lo-fi sessions vol. 1</span>
                 <span class="player-track-desc" id="player-track-desc">lo-fi chill beats</span>
             </div>
-            <div class="player-visualizer" id="player-visualizer">
+            <div class="player-visualizer" id="player-visualizer" aria-hidden="true">
                 <div class="visualizer-bar"></div>
                 <div class="visualizer-bar"></div>
                 <div class="visualizer-bar"></div>
@@ -190,10 +245,10 @@
          Slide-out E-Commerce Cart Drawer
          ========================================================================== -->
     <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
-    <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping Cart">
         <div class="cart-header">
             <h3 class="cart-title">your session cart</h3>
-            <button class="btn-close-cart" id="btn-close-cart" title="Close Cart">
+            <button class="btn-close-cart" id="btn-close-cart" title="Close Cart" aria-label="Close Shopping Cart">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -211,18 +266,18 @@
                 <span>Total</span>
                 <span id="cart-total-price">₹0.00</span>
             </div>
-            <button class="btn-checkout" id="btn-checkout">PROCEED TO CHECKOUT</button>
+            <button class="btn-checkout" id="btn-checkout" aria-label="Proceed to checkout session">PROCEED TO CHECKOUT</button>
         </div>
     </div>
 
     <!-- ==========================================================================
          Checkout Completion Dialog (Modal)
          ========================================================================== -->
-    <dialog id="checkout-dialog" class="checkout-dialog">
+    <dialog id="checkout-dialog" class="checkout-dialog" aria-label="Checkout confirmation">
         <span class="checkout-dialog-icon"><i class="fa-solid fa-circle-check" style="color: var(--color-lime);"></i></span>
         <h2 class="checkout-dialog-title">order confirmed</h2>
         <p class="checkout-dialog-text">Nice! Your session materials are locked in. A confirmation email and tracking link have been sent to your device. Stay in session.</p>
-        <button class="btn-close-checkout" id="btn-close-checkout">SWEET</button>
+        <button class="btn-close-checkout" id="btn-close-checkout" aria-label="Close confirmation dialog">SWEET</button>
     </dialog>
 
     <!-- ==========================================================================
@@ -236,25 +291,25 @@
                 <p class="newsletter-desc">Subscribe to get secret drop notifications, lo-fi session playlists, and access to members-only product collections.</p>
             </div>
             <div>
-                <form class="newsletter-form" id="newsletter-form">
+                <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter Subscription Form">
                     <div class="newsletter-input-wrapper">
-                        <input type="email" class="newsletter-input" placeholder="enter your email address" required aria-label="Email Address">
+                        <input type="email" class="newsletter-input" placeholder="enter your email address" required aria-label="Email Address for newsletter">
                     </div>
-                    <button class="btn-subscribe" type="submit">SUBSCRIBE</button>
+                    <button class="btn-subscribe" type="submit" aria-label="Subscribe to newsletter">SUBSCRIBE</button>
                 </form>
-                <div class="newsletter-feedback" id="newsletter-feedback"></div>
+                <div class="newsletter-feedback" id="newsletter-feedback" aria-live="polite"></div>
             </div>
         </div>
 
         <!-- Secondary links -->
         <div class="footer-nav-block">
             <div class="footer-brand-info">
-                <a href="index.html" class="footer-logo">session dept<span class="logo-dot"></span></a>
+                <a href="index.html" class="footer-logo" aria-label="session dept. logo">session dept<span class="logo-dot"></span></a>
                 <p class="footer-tagline">Making smoking accessories for a modern, creative generation. Slowing down, in style.</p>
                 <div class="footer-socials">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram" aria-label="Instagram Page"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok" aria-label="TikTok Page"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Pinterest" aria-label="Pinterest Page"><i class="fa-brands fa-pinterest"></i></a>
                 </div>
             </div>
             
@@ -262,9 +317,11 @@
                 <h3 class="footer-col-title">explore</h3>
                 <ul class="footer-links-list">
                     <li><a href="index.html#shop" class="footer-link">Shop All</a></li>
-                    <li><a href="about.html" class="footer-link">About & Philosophy</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="philosophy.html" class="footer-link">Philosophy</a></li>
                     <li><a href="index.html#builder" class="footer-link">Session Builder</a></li>
                     <li><a href="journal.html" class="footer-link">Journal</a></li>
+                    <li><a href="faq.html" class="footer-link">FAQ</a></li>
                     <li><a href="contact.html" class="footer-link">Contact Us</a></li>
                 </ul>
             </div>
@@ -272,10 +329,10 @@
             <div>
                 <h3 class="footer-col-title">support</h3>
                 <ul class="footer-links-list">
-                    <li><a href="#" class="footer-link">F.A.Q.</a></li>
-                    <li><a href="#" class="footer-link">Shipping & Returns</a></li>
-                    <li><a href="#" class="footer-link">Care Guide</a></li>
-                    <li><a href="#" class="footer-link">Wholesale</a></li>
+                    <li><a href="faq.html" class="footer-link">F.A.Q.</a></li>
+                    <li><a href="faq.html#shipping-faq" class="footer-link">Shipping & Returns</a></li>
+                    <li><a href="faq.html#care-faq" class="footer-link">Care Guide</a></li>
+                    <li><a href="contact.html" class="footer-link">Wholesale Inquiry</a></li>
                 </ul>
             </div>
 
@@ -308,13 +365,13 @@
          ========================================================================== -->
     <div class="chat-widget" id="chat-widget">
         <!-- Chat Bubble Button -->
-        <button class="chat-bubble" id="chat-bubble" title="Open Session Support Chat">
+        <button class="chat-bubble" id="chat-bubble" title="Open Session Support Chat" aria-label="Open support live chat">
             <i class="fa-solid fa-comments"></i>
-            <span class="chat-badge" id="chat-badge">1</span>
+            <span class="chat-badge" id="chat-badge" aria-hidden="true">1</span>
         </button>
         
         <!-- Chat Window Box -->
-        <div class="chat-window" id="chat-window">
+        <div class="chat-window" id="chat-window" role="dialog" aria-label="Support Live Chat">
             <!-- Header -->
             <div class="chat-header-bar">
                 <div class="chat-agent-info">
@@ -324,20 +381,20 @@
                         <span class="chat-status-text"><span class="chat-status-dot"></span>Online</span>
                     </div>
                 </div>
-                <button class="chat-minimize-btn" id="chat-minimize-btn" title="Minimize Chat">
+                <button class="chat-minimize-btn" id="chat-minimize-btn" title="Minimize Chat" aria-label="Minimize Support Chat">
                     <i class="fa-solid fa-minus"></i>
                 </button>
             </div>
             
             <!-- Messages List -->
-            <div class="chat-messages-area" id="chat-messages-area">
+            <div class="chat-messages-area" id="chat-messages-area" aria-live="polite">
                 <!-- Welcome greeting loaded dynamically -->
             </div>
             
             <!-- Input Bar -->
-            <form class="chat-input-bar" id="chat-input-form">
-                <input type="text" id="chat-user-input" class="chat-input-field" placeholder="ask about shipping, papers, bong..." required autocomplete="off">
-                <button type="submit" class="chat-send-btn" title="Send Message">
+            <form class="chat-input-bar" id="chat-input-form" aria-label="Live Chat Input">
+                <input type="text" id="chat-user-input" class="chat-input-field" placeholder="ask about shipping, papers, bong..." required autocomplete="off" aria-label="Message text field">
+                <button type="submit" class="chat-send-btn" title="Send Message" aria-label="Send live chat message">
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
             </form>

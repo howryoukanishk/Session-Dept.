@@ -7,14 +7,80 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="session dept. is a premium smoking accessories brand targeting Gen Z. Premium ceramic ashtrays, unrefined rolling papers, and high-quality session kits. Light up, slow down, stay in session.">
-    <meta name="keywords" content="session dept, smoking accessories, ashtrays, rolling papers, bongs, Gen Z brand, aesthetic smoking accessories">
+    <meta name="keywords" content="session dept, smoking accessories, ashtrays, rolling papers, bongs, Gen Z brand, aesthetic smoking accessories, Delhi, Patna">
     <meta name="author" content="session dept.">
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://sessiondept.com/index.html">
+    
+    <!-- Google Search Console Verification Placeholder -->
+    <meta name="google-site-verification" content="YOUR_GSC_VERIFICATION_TOKEN_HERE">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="session dept. | Stay in Session">
+    <meta property="og:description" content="Premium smoking accessories brand targeting Gen Z. Organic unrefined papers, custom ceramic ashtrays, and lo-fi audio playlists.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sessiondept.com/index.html">
+    <meta property="og:image" content="https://sessiondept.com/assets/images/outdoor_sign.webp">
+    <meta property="og:site_name" content="session dept.">
+    
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="session dept. | Stay in Session">
+    <meta name="twitter:description" content="Premium smoking accessories brand targeting Gen Z. Organic unrefined papers, custom ceramic ashtrays, and lo-fi audio playlists.">
+    <meta name="twitter:image" content="https://sessiondept.com/assets/images/outdoor_sign.webp">
+    
+    <!-- Google Analytics Placeholder. Insert GA4 tracking ID (e.g., G-XXXXXXXXXX) here. -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data: Organization and WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "session dept.",
+      "url": "https://sessiondept.com",
+      "logo": "https://sessiondept.com/assets/images/outdoor_sign.webp",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9102395579",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["en", "hi"]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Kanishk Prabhat"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "session dept.",
+      "url": "https://sessiondept.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://sessiondept.com/journal.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -25,15 +91,15 @@
     <!-- ==========================================================================
          Compliance Age Gate Modal
          ========================================================================== -->
-    <dialog id="age-gate-dialog" class="age-gate-dialog">
+    <dialog id="age-gate-dialog" class="age-gate-dialog" aria-label="Age Verification Gate">
         <div class="age-gate-container">
             <div class="age-gate-card" id="age-gate-card">
                 <div class="age-gate-logo">session dept<span class="logo-dot"></span></div>
                 <h1 class="age-gate-title">verification required</h1>
                 <p class="age-gate-text">You must be 21 years of age or older to enter the session. We don't rush, we session. Please confirm your age to proceed.</p>
                 <div class="age-gate-buttons">
-                    <button id="btn-confirm-age" class="btn-confirm-age" type="button">YEAH, I'M 21+</button>
-                    <button id="btn-reject-age" class="btn-reject-age" type="button">No, get me out of here</button>
+                    <button id="btn-confirm-age" class="btn-confirm-age" type="button" aria-label="Confirm age 21 or older">YEAH, I'M 21+</button>
+                    <button id="btn-reject-age" class="btn-reject-age" type="button" aria-label="Reject age and exit site">No, get me out of here</button>
                 </div>
             </div>
         </div>
@@ -44,27 +110,32 @@
          ========================================================================== -->
     <header class="main-header" id="main-header">
         <div class="header-container">
-            <a href="#" class="logo-link" id="logo-link">
+            <a href="index.html" class="logo-link" id="logo-link" aria-label="session dept. homepage">
                 <div class="logo-text">session dept<span class="logo-dot"></span></div>
             </a>
             
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
                 <ul class="nav-list">
                     <li><a href="index.html#shop" class="nav-link">Shop</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
                     <li><a href="index.html#builder" class="nav-link">Session Builder</a></li>
                     <li><a href="journal.html" class="nav-link">Journal</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
             
             <div class="header-actions">
-                <button class="header-btn" id="playlist-toggle-btn" title="Toggle Lo-fi Ambient Music">
+                <button class="header-btn" id="playlist-toggle-btn" title="Toggle Lo-fi Ambient Music" aria-label="Toggle ambient background music">
                     <i class="fa-solid fa-compact-disc"></i>
                 </button>
-                <button class="header-btn" id="cart-toggle-btn" title="Open Shopping Cart">
+                <button class="header-btn" id="cart-toggle-btn" title="Open Shopping Cart" aria-label="View shopping cart">
                     <i class="fa-solid fa-shopping-bag"></i>
                     <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="header-btn mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="main-nav">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
@@ -92,10 +163,10 @@
             <div class="hero-collage">
                 <div class="collage-badge">stay in session</div>
                 <div class="collage-item collage-item-1">
-                    <img src="assets/images/smoke_silhouette.jpg" alt="Exhaling smoke forming session dept text" id="hero-img-1">
+                    <img src="assets/images/smoke_silhouette.webp" alt="Exhaling smoke forming session dept text" id="hero-img-1">
                 </div>
                 <div class="collage-item collage-item-2">
-                    <img src="assets/images/outdoor_sign.jpg" alt="session dept illuminated outdoor logo sign" id="hero-img-2">
+                    <img src="assets/images/outdoor_sign.webp" alt="session dept illuminated outdoor logo sign" id="hero-img-2">
                 </div>
             </div>
         </section>
@@ -138,7 +209,7 @@
         <section class="philosophy-section reveal-on-scroll" id="philosophy">
             <div class="philosophy-container">
                 <div class="philosophy-media">
-                    <img src="assets/images/lime_green_poster.jpg" alt="not just a break, it's a session typography poster" id="ph-poster-img">
+                    <img src="assets/images/lime_green_poster.webp" alt="not just a break, it's a session typography poster" id="ph-poster-img">
                 </div>
                 <div class="philosophy-content">
                     <div class="philosophy-tag">our manifesto</div>
@@ -182,8 +253,8 @@
                 <div class="product-card" data-product-id="1" data-category="gear">
                     <div class="product-image-wrapper">
                         <span class="product-badge">Best Seller</span>
-                        <img src="assets/images/ashtray_horizontal.jpg" alt="Ceramic green horizontal ashtray" class="product-img-primary has-hover">
-                        <img src="assets/images/ashtray_topdown.jpg" alt="Ceramic green topdown ashtray" class="product-img-hover">
+                        <img src="assets/images/ashtray_horizontal.webp" alt="Ceramic green horizontal ashtray" class="product-img-primary has-hover">
+                        <img src="assets/images/ashtray_topdown.webp" alt="Ceramic green topdown ashtray" class="product-img-hover">
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -201,7 +272,7 @@
                 <!-- Product 2: Sessions Rolling Papers -->
                 <div class="product-card" data-product-id="2" data-category="gear">
                     <div class="product-image-wrapper">
-                        <img src="assets/images/papers_vertical.jpg" alt="session dept rolling papers pack" class="product-img-primary">
+                        <img src="assets/images/papers_vertical.webp" alt="session dept rolling papers pack" class="product-img-primary">
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -220,7 +291,7 @@
                 <div class="product-card" data-product-id="3" data-category="gear">
                     <div class="product-image-wrapper">
                         <span class="product-badge">Premium</span>
-                        <img src="assets/images/bong_vertical.jpg" alt="Glass water pipe bong on table" class="product-img-primary">
+                        <img src="assets/images/bong_vertical.webp" alt="Glass water pipe bong on table" class="product-img-primary">
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -238,8 +309,8 @@
                 <!-- Product 4: Session Dept. Merch & Sticker Pack -->
                 <div class="product-card" data-product-id="4" data-category="merch">
                     <div class="product-image-wrapper">
-                        <img src="assets/images/tshirt_back.jpg" alt="session dept graphic tshirt back" class="product-img-primary has-hover">
-                        <img src="assets/images/stickers.jpg" alt="session dept holographic stickers sheet" class="product-img-hover">
+                        <img src="assets/images/tshirt_back.webp" alt="session dept graphic tshirt back" class="product-img-primary has-hover">
+                        <img src="assets/images/stickers.webp" alt="session dept holographic stickers sheet" class="product-img-hover">
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -258,7 +329,7 @@
                 <div class="product-card" data-product-id="5" data-category="gear">
                     <div class="product-image-wrapper">
                         <span class="product-badge">Bundle</span>
-                        <img src="assets/images/welcome_box.jpg" alt="Welcome box containing papers lighter pre-rolls" class="product-img-primary">
+                        <img src="assets/images/welcome_box.webp" alt="Welcome box containing papers lighter pre-rolls" class="product-img-primary">
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -403,13 +474,13 @@
                 <p class="merch-callout-text">Rep the brand out in the wild. High weight premium graphic tees, waterproof holographic sticker sheets, and specialized accessories. Collectible drops made in limited numbers.</p>
                 <div class="merch-carousel">
                     <div class="carousel-img-card">
-                        <img src="assets/images/stickers.jpg" alt="Session Dept stickers collection">
+                        <img src="assets/images/stickers.webp" alt="Session Dept stickers collection">
                     </div>
                     <div class="carousel-img-card">
-                        <img src="assets/images/tshirt_back.jpg" alt="Session Dept graphic t-shirt design">
+                        <img src="assets/images/tshirt_back.webp" alt="Session Dept graphic t-shirt design">
                     </div>
                     <div class="carousel-img-card">
-                        <img src="assets/images/welcome_box.jpg" alt="Session Dept welcome gift pack">
+                        <img src="assets/images/welcome_box.webp" alt="Session Dept welcome gift pack">
                     </div>
                 </div>
                 <a href="#shop" class="btn-primary">shop accessories & merch</a>

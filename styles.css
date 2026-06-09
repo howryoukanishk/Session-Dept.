@@ -2813,4 +2813,314 @@ body.dark-mode-sections .header-btn:hover {
     transform: translateX(4px);
 }
 
+/* ==========================================================================
+   Mobile Nav, Accessibility, and CWV Performance Tweaks
+   ========================================================================== */
+
+/* 1. Mobile Menu Hamburger Styles */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--color-charcoal);
+    font-size: 1.35rem;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+body.dark-mode-sections .mobile-nav-toggle {
+    color: var(--color-cream);
+}
+
+.mobile-nav-toggle:hover {
+    background-color: var(--color-cream-darker);
+}
+
+body.dark-mode-sections .mobile-nav-toggle:hover {
+    background-color: var(--color-charcoal-light);
+}
+
+/* 2. Responsive Styling overrides for Viewports below 768px */
+@media (max-width: 767px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Mobile Header adjustments */
+    .header-container {
+        padding: 10px 16px;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .mobile-nav-toggle {
+        display: flex;
+    }
+
+    /* Slide-down Mobile Navigation Overlay */
+    .main-nav {
+        display: block !important;
+        position: fixed;
+        top: 68px; /* header height */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 68px);
+        background-color: var(--color-charcoal);
+        border-top: 1px solid var(--color-charcoal-light);
+        padding: 40px 24px;
+        transform: translateY(-101%);
+        transition: transform var(--transition-medium);
+        z-index: 99;
+        overflow-y: auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .main-nav.open {
+        transform: translateY(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 1.35rem;
+        color: var(--color-cream) !important;
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        font-family: var(--font-display);
+        text-transform: lowercase;
+    }
+
+    .nav-link::after {
+        display: none; /* Hide hover underline animation on mobile */
+    }
+
+    .nav-link.active {
+        color: var(--color-lime) !important;
+    }
+
+    /* Spacing fixes for Hero Section */
+    .hero-section {
+        flex-direction: column;
+        padding: 40px 16px 60px;
+        gap: 40px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3.2rem);
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin: 20px 0 32px;
+    }
+
+    .hero-collage {
+        width: 100%;
+        aspect-ratio: 1.1;
+        transform: scale(0.95);
+    }
+
+    .hero-cta-group {
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* spacing adjustments for other sections */
+    .philosophy-container {
+        flex-direction: column;
+        padding: 60px 16px;
+        gap: 40px;
+    }
+
+    .philosophy-media {
+        width: 100%;
+    }
+
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .shop-section {
+        padding: 60px 16px;
+    }
+
+    .shop-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .builder-section {
+        padding: 60px 16px;
+    }
+
+    .builder-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .merch-section {
+        padding: 60px 16px;
+    }
+
+    /* Newsletter mobile layout details */
+    .newsletter-block {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 48px 24px;
+        text-align: center;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .newsletter-input-wrapper {
+        width: 100%;
+    }
+
+    .btn-subscribe {
+        width: 100%;
+        padding: 18px;
+    }
+
+    /* Footer adjustments */
+    .footer-nav-block {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 16px;
+        text-align: center;
+    }
+
+    .footer-brand-info {
+        align-items: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .footer-credits .credits-container {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        padding: 24px 16px;
+    }
+
+    .credits-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* 3. Spacing Touch Target Standardizations (44x44px Minimum) */
+.header-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-toggle-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-close-cart, .btn-close-checkout, .chat-minimize-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Interactive elements and filters */
+.filter-btn {
+    min-height: 44px;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 4. Skeleton Loading Animation to prevent Cumulative Layout Shift (CLS) */
+.product-image-wrapper, 
+.journal-img-wrapper, 
+.about-intro-media, 
+.founder-img-wrapper,
+.philosophy-media {
+    background: linear-gradient(90deg, var(--color-cream-darker) 25%, var(--color-cream) 50%, var(--color-cream-darker) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.6s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* 5. Contrast Enhancements for WCAG AA compliance (ratio >= 4.5:1) */
+.footer-tagline, .credits-text, .credits-link {
+    color: rgba(245, 244, 240, 0.82) !important; /* Increase opacity of footer text from 0.65 to 0.82 */
+}
+
+.footer-link {
+    color: rgba(245, 244, 240, 0.88) !important;
+    padding: 8px 0; /* Increase touch target */
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: var(--color-lime) !important;
+}
+
+.newsletter-desc {
+    color: rgba(245, 244, 240, 0.88) !important;
+}
+
+.faq-summary:focus-visible {
+    outline: 2px solid var(--color-lime);
+    outline-offset: 4px;
+}
+
+
 

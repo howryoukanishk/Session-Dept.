@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollReveal();
     initNewsletterForm();
     initChatWidget();
+    initMobileNav();
 });
 
 // ==========================================================================
@@ -780,4 +781,47 @@ function initChatWidget() {
         }
     }
 }
+
+// ==========================================================================
+// 10. Mobile Navigation Toggle Menu
+// ==========================================================================
+function initMobileNav() {
+    const toggleBtn = document.getElementById("mobile-nav-toggle");
+    const mainNav = document.getElementById("main-nav");
+    
+    if (!toggleBtn || !mainNav) return;
+    
+    toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
+        toggleBtn.setAttribute("aria-expanded", !expanded);
+        mainNav.classList.toggle("open");
+        
+        // Lock body scrolling when mobile menu is active
+        if (!expanded) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+    });
+    
+    // Close menu when clicking outside of the nav area
+    document.addEventListener("click", (e) => {
+        if (mainNav.classList.contains("open") && !mainNav.contains(e.target) && e.target !== toggleBtn) {
+            toggleBtn.setAttribute("aria-expanded", "false");
+            mainNav.classList.remove("open");
+            document.body.style.overflow = "";
+        }
+    });
+    
+    // Close mobile menu on clicking any navigation links
+    mainNav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            toggleBtn.setAttribute("aria-expanded", "false");
+            mainNav.classList.remove("open");
+            document.body.style.overflow = "";
+        });
+    });
+}
+
 

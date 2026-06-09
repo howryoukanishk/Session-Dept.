@@ -6,15 +6,77 @@
     <title>The Session Journal | session dept.</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Explore the Session Journal. Digital zine articles on slow culture, product design, lo-fi beats, and stories from Bihar to Delhi by founder Kanishk Prabhat.">
-    <meta name="keywords" content="session journal, design blog, smoking accessories, slow living, lo-fi beats, Bihar clay, Delhi aesthetics">
+    <meta name="description" content="Explore the Session Journal. Read 10 curated design-forward articles on intentional living, creative rituals, environment design, and lofi culture.">
+    <meta name="keywords" content="session journal, design blog, smoking accessories, slow living, lo-fi beats, Bihar clay, Delhi design, intentional living, rituals, mindfulness">
     <meta name="author" content="session dept.">
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://sessiondept.com/journal.html">
+    
+    <!-- Google Search Console Verification Placeholder -->
+    <meta name="google-site-verification" content="YOUR_GSC_VERIFICATION_TOKEN_HERE">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="The Session Journal | session dept.">
+    <meta property="og:description" content="Explore articles on slow design, creative rituals, lofi beats, and design culture in the Session Journal.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sessiondept.com/journal.html">
+    <meta property="og:image" content="https://sessiondept.com/assets/images/smoke_silhouette.webp">
+    <meta property="og:site_name" content="session dept.">
+    
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Session Journal | session dept.">
+    <meta name="twitter:description" content="Explore articles on slow design, creative rituals, lofi beats, and design culture in the Session Journal.">
+    <meta name="twitter:image" content="https://sessiondept.com/assets/images/smoke_silhouette.webp">
+    
+    <!-- Google Analytics Placeholder. Insert GA4 tracking ID (e.g., G-XXXXXXXXXX) here. -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data: Breadcrumb and Blog -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://sessiondept.com/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Journal",
+        "item": "https://sessiondept.com/journal.html"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "The Session Journal",
+      "description": "Articles exploring design, slow living, lofi music, and creative rituals.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "session dept."
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -25,15 +87,15 @@
     <!-- ==========================================================================
          Compliance Age Gate Modal
          ========================================================================== -->
-    <dialog id="age-gate-dialog" class="age-gate-dialog">
+    <dialog id="age-gate-dialog" class="age-gate-dialog" aria-label="Age Verification Gate">
         <div class="age-gate-container">
             <div class="age-gate-card" id="age-gate-card">
                 <div class="age-gate-logo">session dept<span class="logo-dot"></span></div>
                 <h1 class="age-gate-title">verification required</h1>
                 <p class="age-gate-text">You must be 21 years of age or older to enter the session. We don't rush, we session. Please confirm your age to proceed.</p>
                 <div class="age-gate-buttons">
-                    <button id="btn-confirm-age" class="btn-confirm-age" type="button">YEAH, I'M 21+</button>
-                    <button id="btn-reject-age" class="btn-reject-age" type="button">No, get me out of here</button>
+                    <button id="btn-confirm-age" class="btn-confirm-age" type="button" aria-label="Confirm age 21 or older">YEAH, I'M 21+</button>
+                    <button id="btn-reject-age" class="btn-reject-age" type="button" aria-label="Reject age and exit site">No, get me out of here</button>
                 </div>
             </div>
         </div>
@@ -44,27 +106,32 @@
          ========================================================================== -->
     <header class="main-header" id="main-header">
         <div class="header-container">
-            <a href="index.html" class="logo-link" id="logo-link">
+            <a href="index.html" class="logo-link" id="logo-link" aria-label="session dept. homepage">
                 <div class="logo-text">session dept<span class="logo-dot"></span></div>
             </a>
             
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
                 <ul class="nav-list">
                     <li><a href="index.html#shop" class="nav-link">Shop</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
                     <li><a href="index.html#builder" class="nav-link">Session Builder</a></li>
                     <li><a href="journal.html" class="nav-link active">Journal</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
             
             <div class="header-actions">
-                <button class="header-btn" id="playlist-toggle-btn" title="Toggle Lo-fi Ambient Music">
+                <button class="header-btn" id="playlist-toggle-btn" title="Toggle Lo-fi Ambient Music" aria-label="Toggle ambient background music">
                     <i class="fa-solid fa-compact-disc"></i>
                 </button>
-                <button class="header-btn" id="cart-toggle-btn" title="Open Shopping Cart">
+                <button class="header-btn" id="cart-toggle-btn" title="Open Shopping Cart" aria-label="View shopping cart">
                     <i class="fa-solid fa-shopping-bag"></i>
                     <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="header-btn mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="main-nav">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
@@ -83,15 +150,15 @@
         </section>
 
         <!-- ==========================================================================
-             Journal Post Grid
+             Journal Post Grid (10 Articles)
              ========================================================================== -->
         <section class="journal-section reveal-on-scroll">
             <div class="journal-grid">
                 
-                <!-- Post 1 -->
+                <!-- Post 1: Intentional Living -->
                 <article class="journal-card">
                     <div class="journal-img-wrapper">
-                        <img src="assets/images/smoke_silhouette.jpg" alt="Exhaled smoke silhouette">
+                        <img src="assets/images/smoke_silhouette.webp" alt="Exhaled smoke silhouette" width="350" height="218" loading="lazy">
                     </div>
                     <div class="journal-content">
                         <div class="journal-meta-row">
@@ -100,87 +167,151 @@
                         </div>
                         <h2 class="journal-post-title">the art of the slow session: reclaiming your break</h2>
                         <p class="journal-post-excerpt">Why taking a break should be an active, sensory choice, not a passive scroll. We explore how tactile tools help us anchor ourselves in the present.</p>
-                        <a href="#" class="journal-read-more" onclick="alert('Full article content coming in next editorial drop! Stay in session.'); return false;">read entry <i class="fa-solid fa-arrow-right"></i></a>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-1').showModal()" aria-label="Read entry: the art of the slow session">read entry <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </article>
 
-                <!-- Post 2 -->
+                <!-- Post 2: Environment Design -->
                 <article class="journal-card">
                     <div class="journal-img-wrapper">
-                        <img src="assets/images/ashtray_horizontal.jpg" alt="Stoneware ceramic green ashtray">
+                        <img src="assets/images/ashtray_horizontal.webp" alt="Stoneware ceramic green ashtray" width="350" height="218" loading="lazy">
                     </div>
                     <div class="journal-content">
                         <div class="journal-meta-row">
                             <span class="journal-post-tag">design</span>
                             <span>June 05, 2026</span>
                         </div>
-                        <h2 class="journal-post-title">stoneware vs. glass: the weight of good design</h2>
+                        <h2 class="journal-post-title">stoneware vs. glass: the weight of tactile objects</h2>
                         <p class="journal-post-excerpt">An editorial review of why heavy clay ceramic materials offer a superior physical grounding experience compared to mass-produced cheap plastics.</p>
-                        <a href="#" class="journal-read-more" onclick="alert('Full article content coming in next editorial drop! Stay in session.'); return false;">read entry <i class="fa-solid fa-arrow-right"></i></a>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-2').showModal()" aria-label="Read entry: stoneware vs. glass">read entry <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </article>
 
-                <!-- Post 3 -->
+                <!-- Post 3: Creativity -->
                 <article class="journal-card">
                     <div class="journal-img-wrapper">
-                        <img src="assets/images/stickers.jpg" alt="Session Dept stickers collection">
+                        <img src="assets/images/stickers.webp" alt="Session Dept stickers collection" width="350" height="218" loading="lazy">
                     </div>
                     <div class="journal-content">
                         <div class="journal-meta-row">
                             <span class="journal-post-tag">music</span>
                             <span>June 02, 2026</span>
                         </div>
-                        <h2 class="journal-post-title">ambient tempos: why lo-fi music relaxes the brain</h2>
+                        <h2 class="journal-post-title">70 bpm: how lo-fi audio syncs with creative focus</h2>
                         <p class="journal-post-excerpt">How auditory vibes sync with breath rates. We analyze why 70 BPM lofi beats are the perfect soundtrack to slow down and work/relax to.</p>
-                        <a href="#" class="journal-read-more" onclick="alert('Full article content coming in next editorial drop! Stay in session.'); return false;">read entry <i class="fa-solid fa-arrow-right"></i></a>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-3').showModal()" aria-label="Read entry: 70 bpm lofi beats">read entry <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </article>
 
-                <!-- Post 4 -->
+                <!-- Post 4: Rituals -->
                 <article class="journal-card">
                     <div class="journal-img-wrapper">
-                        <img src="assets/images/papers_vertical.jpg" alt="Premium unrefined rolling papers pack">
+                        <img src="assets/images/papers_vertical.webp" alt="Premium unrefined rolling papers pack" width="350" height="218" loading="lazy">
                     </div>
                     <div class="journal-content">
                         <div class="journal-meta-row">
                             <span class="journal-post-tag">guide</span>
                             <span>May 28, 2026</span>
                         </div>
-                        <h2 class="journal-post-title">unrefined paper guide: burn rate & taste profiles</h2>
+                        <h2 class="journal-post-title">unrefined papers: understanding density & burn rate</h2>
                         <p class="journal-post-excerpt">A deep dive into paper density, natural gum Arabic stickiness, and why wood pulp alternatives alter the taste profiles of your session blends.</p>
-                        <a href="#" class="journal-read-more" onclick="alert('Full article content coming in next editorial drop! Stay in session.'); return false;">read entry <i class="fa-solid fa-arrow-right"></i></a>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-4').showModal()" aria-label="Read entry: unrefined papers burn rate">read entry <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </article>
 
-                <!-- Post 5 -->
+                <!-- Post 5: Lifestyle Culture -->
                 <article class="journal-card">
                     <div class="journal-img-wrapper">
-                        <img src="assets/images/ashtray_topdown.jpg" alt="Topdown ceramic design detail">
+                        <img src="assets/images/ashtray_topdown.webp" alt="Topdown ceramic design detail" width="350" height="218" loading="lazy">
                     </div>
                     <div class="journal-content">
                         <div class="journal-meta-row">
-                            <span class="journal-post-tag">founder</span>
+                            <span class="journal-post-tag">heritage</span>
                             <span>May 24, 2026</span>
                         </div>
-                        <h2 class="journal-post-title">from bihar to delhi: local clay & city aesthetics</h2>
+                        <h2 class="journal-post-title">the Patna potters: clay traditions in modern spaces</h2>
                         <p class="journal-post-excerpt">Founder Kanishk Prabhat shares how rural earthen pottery traditions in Bihar inspired the heavy clay materials used in Delhi's urban design spaces.</p>
-                        <a href="#" class="journal-read-more" onclick="alert('Full article content coming in next editorial drop! Stay in session.'); return false;">read entry <i class="fa-solid fa-arrow-right"></i></a>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-5').showModal()" aria-label="Read entry: Patna potters clay traditions">read entry <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </article>
 
-                <!-- Post 6 -->
+                <!-- Post 6: Environment Design -->
                 <article class="journal-card">
                     <div class="journal-img-wrapper">
-                        <img src="assets/images/welcome_box.jpg" alt="The Welcome Box bundle pack">
+                        <img src="assets/images/welcome_box.webp" alt="The Welcome Box bundle pack" width="350" height="218" loading="lazy">
                     </div>
                     <div class="journal-content">
                         <div class="journal-meta-row">
-                            <span class="journal-post-tag">drops</span>
+                            <span class="journal-post-tag">design</span>
                             <span>May 18, 2026</span>
                         </div>
                         <h2 class="journal-post-title">behind the scenes: the making of the welcome box</h2>
                         <p class="journal-post-excerpt">We outline the design packaging constraints, materials sourcing, and customization choices that went into drafting the Welcome Box package.</p>
-                        <a href="#" class="journal-read-more" onclick="alert('Full article content coming in next editorial drop! Stay in session.'); return false;">read entry <i class="fa-solid fa-arrow-right"></i></a>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-6').showModal()" aria-label="Read entry: welcome box making of">read entry <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </article>
+
+                <!-- Post 7: Intentional Living -->
+                <article class="journal-card">
+                    <div class="journal-img-wrapper">
+                        <img src="assets/images/tshirt_back.webp" alt="Creative t-shirt backing streetwear design" width="350" height="218" loading="lazy">
+                    </div>
+                    <div class="journal-content">
+                        <div class="journal-meta-row">
+                            <span class="journal-post-tag">culture</span>
+                            <span>May 12, 2026</span>
+                        </div>
+                        <h2 class="journal-post-title">the digital sabbath: disconnecting to connect</h2>
+                        <p class="journal-post-excerpt">Why scheduling deliberate screen-free sessions restores focus, boosts creativity, and creates space for real face-to-face interaction.</p>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-7').showModal()" aria-label="Read entry: digital sabbath disconnecting">read entry <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </article>
+
+                <!-- Post 8: Creativity -->
+                <article class="journal-card">
+                    <div class="journal-img-wrapper">
+                        <img src="assets/images/outdoor_sign.webp" alt="Outdoor illuminated logo sign detail" width="350" height="218" loading="lazy">
+                    </div>
+                    <div class="journal-content">
+                        <div class="journal-meta-row">
+                            <span class="journal-post-tag">design</span>
+                            <span>May 06, 2026</span>
+                        </div>
+                        <h2 class="journal-post-title">sensory design: why texture is the new visual</h2>
+                        <p class="journal-post-excerpt">A look into how Gen Z spaces are rejecting flat screens in favor of tactile stoneware, natural hemp papers, and physical music formats.</p>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-8').showModal()" aria-label="Read entry: sensory design texture">read entry <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </article>
+
+                <!-- Post 9: Environment Design -->
+                <article class="journal-card">
+                    <div class="journal-img-wrapper">
+                        <img src="assets/images/founder.webp" alt="Founder portrait session style" width="350" height="218" loading="lazy">
+                    </div>
+                    <div class="journal-content">
+                        <div class="journal-meta-row">
+                            <span class="journal-post-tag">lifestyle</span>
+                            <span>April 29, 2026</span>
+                        </div>
+                        <h2 class="journal-post-title">the history of the lounge: space design & relaxation</h2>
+                        <p class="journal-post-excerpt">From mid-century conversation pits to contemporary creative lounges: how furniture layouts shape our social rituals and relaxation habits.</p>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-9').showModal()" aria-label="Read entry: history of lounge spaces">read entry <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </article>
+
+                <!-- Post 10: Mindfulness / Rituals -->
+                <article class="journal-card">
+                    <div class="journal-img-wrapper">
+                        <img src="assets/images/bong_vertical.webp" alt="Glass water pipe bong close up" width="350" height="218" loading="lazy">
+                    </div>
+                    <div class="journal-content">
+                        <div class="journal-meta-row">
+                            <span class="journal-post-tag">mindfulness</span>
+                            <span>April 22, 2026</span>
+                        </div>
+                        <h2 class="journal-post-title">mindful inhalation: breathing exercises for creative block</h2>
+                        <p class="journal-post-excerpt">Stuck in a creative rut? We outline how rhythmic, deep breathing sessions can clear mental fog, regulate tempos, and unlock fresh inspiration.</p>
+                        <button class="journal-read-more btn-text-only" onclick="document.getElementById('article-10').showModal()" aria-label="Read entry: mindful breathing exercises">read entry <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </article>
 
@@ -189,22 +320,125 @@
     </main>
 
     <!-- ==========================================================================
+         Crawlable Full Article Content Dialogs (Modals)
+         ========================================================================== -->
+    <!-- Article 1 dialog -->
+    <dialog id="article-1" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: the art of the slow session">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">the art of the slow session: reclaiming your break</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>Taking a break has become a performative act in our hyper-connected modern life. We step away from one screen only to instantly engage with another. This cycle of continuous inputs keeps our nervous systems in a constant state of hyper-arousal, defeating the purpose of stepping away in the first place.</p>
+            <p>At session dept., we advocate for the conscious session. By shifting your attention to tangible, slow, and tactile rituals—like grinding, packing, rolling, and listening to low-tempo lofi streams—you anchor your mind in the physical environment. Reclaim your break; don't just consume time, enjoy a real session.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- Article 2 dialog -->
+    <dialog id="article-2" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: stoneware vs. glass">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">stoneware vs. glass: the weight of tactile objects</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>Why do we prefer heavy ceramics over light plastic or standard industrial glass? The answer lies in tactile feedback. In design, the weight of an object communicates its value, durability, and grounding capacity. Thin materials feel temporary and disposable, encouraging rushed usage.</p>
+            <p>Stoneware, fired at extremely high temperatures, retains a cool, earthy surface texture and significant physical weight. When you place a session dept. ceramic ashtray on your table, the solid sound and substantial feel anchor the space. It forces you to interact slowly and deliberately.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- Article 3 dialog -->
+    <dialog id="article-3" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: 70 bpm lofi audio">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">70 bpm: how lo-fi audio syncs with creative focus</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>The pace of sound directly affects the heart rate and cognitive processing of the listener. Fast beats (above 120 BPM) release adrenaline, which is useful for workouts but detrimental for deep, focused creative writing or sketching. Conversely, very slow ambient tones can lead to drowsiness.</p>
+            <p>Research indicates that audio pulsing between 60 to 80 BPM—the resting heart rate of a healthy adult—induces a state of relaxed alertness. The slow drum loops, vinyl dust crackles, and soft piano chords of our custom lo-fi sessions help quiet mental chatter, establishing the ideal rhythm for workflow focus.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- Article 4 dialog -->
+    <dialog id="article-4" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: unrefined papers guide">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">unrefined papers: understanding density & burn rate</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>Not all papers are rolled equal. Mass-market alternatives frequently rely on wood pulp bleached with chlorine or treated with chemical accelerants. This speeds up the burn rate but ruins the organic taste profiles and releases harsh chemicals during combustion.</p>
+            <p>Our unrefined sessions papers utilize organic hemp fibers. Because they are unbleached, they retain their natural light-brown color. Hemp fibers are naturally strong and dense, allowing for a paper that is incredibly thin yet slow-burning. Fused with organic gum Arabic, it provides a clean, neutral taste profile.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- Article 5 dialog -->
+    <dialog id="article-5" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: Patna potters clay traditions">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">the Patna potters: clay traditions in modern spaces</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>Bihar has a rich, centuries-old relationship with earthen pottery, rooted in the clay-rich banks of the Ganges. Traditional potters in Patna have honed techniques for throwing pots, water jars, and oil lamps that are highly durable and cool to the touch. It is a slow, methodical trade passed down through generations.</p>
+            <p>Founder Kanishk Prabhat grew up witnessing this slow, hand-turned art form. In designing session dept.'s custom ceramic line, Kanishk adapted these heritage clay processes. Fusing Bihar's raw earth material textures with the high-contrast geometries of New Delhi streetwear culture, we create a bridge between local history and modern design.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- Article 6 dialog -->
+    <dialog id="article-6" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: behind the scenes of welcome box">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">behind the scenes: the making of the welcome box</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>Our Welcome Box was designed to solve a simple problem: the clutter of mismatched accessories on coffee tables. We set out to create a unified bundle containing unrefined papers, custom tips, a ceramic holder, and a slow matches kit—all housed in a beautifully structured box.</p>
+            <p>The manufacturing process involved months of prototype testing. We selected heavy-board recycled cardboard finished with a raw, uncoated paper texture to feel tactile and premium. The inner dividers are custom-molded to lock each accessory in place, ensuring your kit remains organized and ready for the session.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- Article 7 dialog -->
+    <dialog id="article-7" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: the digital sabbath">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">the digital sabbath: disconnecting to connect</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>The average Gen Z user logs over 7 hours of daily screen time. This constant loop of visual updates, notifications, and algorithm-driven content keeps our minds cluttered. We are constantly connected, yet increasingly isolated from our physical surroundings.</p>
+            <p>A digital sabbath is a scheduled window where you power down your phones, laptops, and tablets. It creates an empty space in your day. Light up a slow match, put on a lo-fi record, and focus on immediate physical tasks. You will find that disconnecting from screens leads to richer internal thoughts and authentic conversations.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- Article 8 dialog -->
+    <dialog id="article-8" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: sensory design texture">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">sensory design: why texture is the new visual</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>Modern design has spent years refining flat visual aesthetics—from glossy screen pixels to minimalist white-walled spaces. However, this visual dominance leaves our other senses under-stimulated. Gen Z is leading a pushback, demanding textures and shapes that engage the hands and body.</p>
+            <p>Sensory design prioritizes how an object feels. The rough matte finish of stoneware, the grain of raw cardboard packaging, and the crinkle of natural unbleached hemp paper create a comforting, grounding feedback loop. Texture is no longer an afterthought; it is the core of the design.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- Article 9 dialog -->
+    <dialog id="article-9" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: history of the lounge">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">the history of the lounge: space design & relaxation</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>The spaces we design dictate our behavior. In the mid-20th century, the rise of the "conversation pit"—a sunken living room seating layout—facilitated slow, face-to-face social gatherings. Over time, high-backed couches and visual focus towards TVs replaced these shared setups.</p>
+            <p>Today, we are witnessing a return of the creative lounge. High-contrast colors, low seating grids, ambient vinyl player tables, and curated accessories are designed to foster relaxed, unhurried interactions. Design your environment to facilitate slow sessions and creative conversations.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- Article 10 dialog -->
+    <dialog id="article-10" class="checkout-dialog article-dialog" style="max-width: 700px; padding: 40px; border-radius: var(--border-radius-lg); border: 2px solid var(--color-charcoal); background-color: var(--color-cream);" aria-label="Article: mindful breathing inhalation">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; text-transform: lowercase;">mindful inhalation: breathing exercises for creative block</h2>
+        <div style="font-family: var(--font-sans); line-height: 1.8; font-size: 1.05rem; color: var(--color-charcoal); display: flex; flex-direction: column; gap: 16px;">
+            <p>When stuck on a coding challenge or a design draft, our breathing often becomes shallow and fast. This reduces oxygen flow to the prefrontal cortex, inducing anxiety and locking us in a mental block. Taking a deliberate breathing break breaks this stress cycle.</p>
+            <p>We recommend the box breathing method: inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds, and hold for 4 seconds. Repeat this cycle for five minutes. This simple, mindful ritual regulates heart rate, resets brain wave frequencies, and creates the mental space needed for fresh insights.</p>
+        </div>
+        <button class="btn-primary" style="margin-top: 30px; padding: 12px 24px;" onclick="this.closest('dialog').close();">CLOSE ENTRY</button>
+    </dialog>
+
+    <!-- ==========================================================================
          Lo-Fi Sound Player Floating Widget
          ========================================================================== -->
     <div class="floating-audio-player" id="floating-audio-player">
         <div class="player-vinyl-wrapper">
-            <div class="vinyl-disc" id="vinyl-disc"></div>
-            <div class="vinyl-center"></div>
+            <div class="vinyl-disc" id="vinyl-disc" aria-hidden="true"></div>
+            <div class="vinyl-center" aria-hidden="true"></div>
         </div>
         <div class="player-controls">
-            <button class="player-toggle-btn" id="player-toggle-btn" title="Play Ambient Music">
+            <button class="player-toggle-btn" id="player-toggle-btn" title="Play Ambient Music" aria-label="Play Lo-fi music stream">
                 <i class="fa-solid fa-play" id="player-btn-icon"></i>
             </button>
             <div class="player-track-info">
                 <span class="player-track-title" id="player-track-title">lo-fi sessions vol. 1</span>
                 <span class="player-track-desc" id="player-track-desc">lo-fi chill beats</span>
             </div>
-            <div class="player-visualizer" id="player-visualizer">
+            <div class="player-visualizer" id="player-visualizer" aria-hidden="true">
                 <div class="visualizer-bar"></div>
                 <div class="visualizer-bar"></div>
                 <div class="visualizer-bar"></div>
@@ -220,10 +454,10 @@
          Slide-out E-Commerce Cart Drawer
          ========================================================================== -->
     <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
-    <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping Cart">
         <div class="cart-header">
             <h3 class="cart-title">your session cart</h3>
-            <button class="btn-close-cart" id="btn-close-cart" title="Close Cart">
+            <button class="btn-close-cart" id="btn-close-cart" title="Close Cart" aria-label="Close Shopping Cart">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -241,18 +475,18 @@
                 <span>Total</span>
                 <span id="cart-total-price">₹0.00</span>
             </div>
-            <button class="btn-checkout" id="btn-checkout">PROCEED TO CHECKOUT</button>
+            <button class="btn-checkout" id="btn-checkout" aria-label="Proceed to checkout session">PROCEED TO CHECKOUT</button>
         </div>
     </div>
 
     <!-- ==========================================================================
          Checkout Completion Dialog (Modal)
          ========================================================================== -->
-    <dialog id="checkout-dialog" class="checkout-dialog">
+    <dialog id="checkout-dialog" class="checkout-dialog" aria-label="Checkout confirmation">
         <span class="checkout-dialog-icon"><i class="fa-solid fa-circle-check" style="color: var(--color-lime);"></i></span>
         <h2 class="checkout-dialog-title">order confirmed</h2>
         <p class="checkout-dialog-text">Nice! Your session materials are locked in. A confirmation email and tracking link have been sent to your device. Stay in session.</p>
-        <button class="btn-close-checkout" id="btn-close-checkout">SWEET</button>
+        <button class="btn-close-checkout" id="btn-close-checkout" aria-label="Close confirmation dialog">SWEET</button>
     </dialog>
 
     <!-- ==========================================================================
@@ -266,25 +500,25 @@
                 <p class="newsletter-desc">Subscribe to get secret drop notifications, lo-fi session playlists, and access to members-only product collections.</p>
             </div>
             <div>
-                <form class="newsletter-form" id="newsletter-form">
+                <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter Subscription Form">
                     <div class="newsletter-input-wrapper">
-                        <input type="email" class="newsletter-input" placeholder="enter your email address" required aria-label="Email Address">
+                        <input type="email" class="newsletter-input" placeholder="enter your email address" required aria-label="Email Address for newsletter">
                     </div>
-                    <button class="btn-subscribe" type="submit">SUBSCRIBE</button>
+                    <button class="btn-subscribe" type="submit" aria-label="Subscribe to newsletter">SUBSCRIBE</button>
                 </form>
-                <div class="newsletter-feedback" id="newsletter-feedback"></div>
+                <div class="newsletter-feedback" id="newsletter-feedback" aria-live="polite"></div>
             </div>
         </div>
 
         <!-- Secondary links -->
         <div class="footer-nav-block">
             <div class="footer-brand-info">
-                <a href="index.html" class="footer-logo">session dept<span class="logo-dot"></span></a>
+                <a href="index.html" class="footer-logo" aria-label="session dept. logo">session dept<span class="logo-dot"></span></a>
                 <p class="footer-tagline">Making smoking accessories for a modern, creative generation. Slowing down, in style.</p>
                 <div class="footer-socials">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram" aria-label="Instagram Page"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok" aria-label="TikTok Page"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Pinterest" aria-label="Pinterest Page"><i class="fa-brands fa-pinterest"></i></a>
                 </div>
             </div>
             
@@ -292,9 +526,11 @@
                 <h3 class="footer-col-title">explore</h3>
                 <ul class="footer-links-list">
                     <li><a href="index.html#shop" class="footer-link">Shop All</a></li>
-                    <li><a href="about.html" class="footer-link">About & Philosophy</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="philosophy.html" class="footer-link">Philosophy</a></li>
                     <li><a href="index.html#builder" class="footer-link">Session Builder</a></li>
                     <li><a href="journal.html" class="footer-link">Journal</a></li>
+                    <li><a href="faq.html" class="footer-link">FAQ</a></li>
                     <li><a href="contact.html" class="footer-link">Contact Us</a></li>
                 </ul>
             </div>
@@ -302,10 +538,10 @@
             <div>
                 <h3 class="footer-col-title">support</h3>
                 <ul class="footer-links-list">
-                    <li><a href="#" class="footer-link">F.A.Q.</a></li>
-                    <li><a href="#" class="footer-link">Shipping & Returns</a></li>
-                    <li><a href="#" class="footer-link">Care Guide</a></li>
-                    <li><a href="#" class="footer-link">Wholesale</a></li>
+                    <li><a href="faq.html" class="footer-link">F.A.Q.</a></li>
+                    <li><a href="faq.html#shipping-faq" class="footer-link">Shipping & Returns</a></li>
+                    <li><a href="faq.html#care-faq" class="footer-link">Care Guide</a></li>
+                    <li><a href="contact.html" class="footer-link">Wholesale Inquiry</a></li>
                 </ul>
             </div>
 
@@ -338,13 +574,13 @@
          ========================================================================== -->
     <div class="chat-widget" id="chat-widget">
         <!-- Chat Bubble Button -->
-        <button class="chat-bubble" id="chat-bubble" title="Open Session Support Chat">
+        <button class="chat-bubble" id="chat-bubble" title="Open Session Support Chat" aria-label="Open support live chat">
             <i class="fa-solid fa-comments"></i>
-            <span class="chat-badge" id="chat-badge">1</span>
+            <span class="chat-badge" id="chat-badge" aria-hidden="true">1</span>
         </button>
         
         <!-- Chat Window Box -->
-        <div class="chat-window" id="chat-window">
+        <div class="chat-window" id="chat-window" role="dialog" aria-label="Support Live Chat">
             <!-- Header -->
             <div class="chat-header-bar">
                 <div class="chat-agent-info">
@@ -354,20 +590,20 @@
                         <span class="chat-status-text"><span class="chat-status-dot"></span>Online</span>
                     </div>
                 </div>
-                <button class="chat-minimize-btn" id="chat-minimize-btn" title="Minimize Chat">
+                <button class="chat-minimize-btn" id="chat-minimize-btn" title="Minimize Chat" aria-label="Minimize Support Chat">
                     <i class="fa-solid fa-minus"></i>
                 </button>
             </div>
             
             <!-- Messages List -->
-            <div class="chat-messages-area" id="chat-messages-area">
+            <div class="chat-messages-area" id="chat-messages-area" aria-live="polite">
                 <!-- Welcome greeting loaded dynamically -->
             </div>
             
             <!-- Input Bar -->
-            <form class="chat-input-bar" id="chat-input-form">
-                <input type="text" id="chat-user-input" class="chat-input-field" placeholder="ask about shipping, papers, bong..." required autocomplete="off">
-                <button type="submit" class="chat-send-btn" title="Send Message">
+            <form class="chat-input-bar" id="chat-input-form" aria-label="Live Chat Input">
+                <input type="text" id="chat-user-input" class="chat-input-field" placeholder="ask about shipping, papers, bong..." required autocomplete="off" aria-label="Message text field">
+                <button type="submit" class="chat-send-btn" title="Send Message" aria-label="Send live chat message">
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
             </form>
