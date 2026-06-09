@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & Philosophy | session dept.</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn about session dept., our philosophy, design manifesto, and founder Kanishk Prabhat. Bridging Bihar traditional roots with Delhi Gen Z aesthetics.">
+    <meta name="keywords" content="session dept, philosophy, Kanishk Prabhat, founder, smoking accessories, Gen Z design, Bihar, Delhi">
+    <meta name="author" content="session dept.">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-ring" id="custom-cursor-ring"></div>
+
+    <!-- ==========================================================================
+         Compliance Age Gate Modal
+         ========================================================================== -->
+    <dialog id="age-gate-dialog" class="age-gate-dialog">
+        <div class="age-gate-container">
+            <div class="age-gate-card" id="age-gate-card">
+                <div class="age-gate-logo">session dept<span class="logo-dot"></span></div>
+                <h1 class="age-gate-title">verification required</h1>
+                <p class="age-gate-text">You must be 21 years of age or older to enter the session. We don't rush, we session. Please confirm your age to proceed.</p>
+                <div class="age-gate-buttons">
+                    <button id="btn-confirm-age" class="btn-confirm-age" type="button">YEAH, I'M 21+</button>
+                    <button id="btn-reject-age" class="btn-reject-age" type="button">No, get me out of here</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- ==========================================================================
+         Main Navigation Header
+         ========================================================================== -->
+    <header class="main-header" id="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link" id="logo-link">
+                <div class="logo-text">session dept<span class="logo-dot"></span></div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html#shop" class="nav-link">Shop</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="index.html#builder" class="nav-link">Session Builder</a></li>
+                    <li><a href="journal.html" class="nav-link">Journal</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="header-btn" id="playlist-toggle-btn" title="Toggle Lo-fi Ambient Music">
+                    <i class="fa-solid fa-compact-disc"></i>
+                </button>
+                <button class="header-btn" id="cart-toggle-btn" title="Open Shopping Cart">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==========================================================================
+             Subpage Hero Banner
+             ========================================================================== -->
+        <section class="subpage-hero">
+            <div class="subpage-hero-container">
+                <span class="subpage-tag">philosophy</span>
+                <h1 class="subpage-title">slowing down, in style.</h1>
+                <p class="subpage-subtitle">session dept. is a design project focused on sensory objects and premium smoking accessories for a modern, creative generation.</p>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             About Intro / Manifesto
+             ========================================================================== -->
+        <section class="about-intro-section reveal-on-scroll">
+            <div class="about-intro-grid">
+                <div class="about-intro-content">
+                    <span class="about-manifesto-badge">manifesto v1.0</span>
+                    <h3>we believe in reclaiming the pause.</h3>
+                    <p>In a hyper-digitized, fast-paced world, taking a break has become transactional. We smoke, we scroll, we rush. session dept. was founded to challenge this culture of constant movement.</p>
+                    <p>Our tools are designed to look striking in your living space and feel substantial in your hands. By focusing on heavy stoneware ceramics, unrefined natural fibers, and minimal geometries, we invite you to put down the screen, light up, slow down, and stay in session.</p>
+                </div>
+                <div class="about-intro-media">
+                    <img src="assets/images/welcome_box.jpg" alt="session dept. curated welcome package">
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Meet the Founder Section
+             ========================================================================== -->
+        <section class="founder-section reveal-on-scroll">
+            <div class="founder-container">
+                <div class="founder-grid">
+                    <div class="founder-img-wrapper">
+                        <img src="assets/images/tshirt_back.jpg" alt="Founder portrait session style">
+                    </div>
+                    <div class="founder-content">
+                        <span class="founder-tag">our story</span>
+                        <h2 class="founder-name">Kanishk Prabhat</h2>
+                        <span class="founder-title">Founder & Creative Director</span>
+                        
+                        <div class="founder-bio-text">
+                            <p>Originally hailing from Bihar, Kanishk grew up surrounded by a landscape of rich cultural craft, architectural ruins, and an unhurried, slow-paced lifestyle. These formative years instilled in him a deep respect for raw textures, handmade earthen materials, and the beauty of conscious pauses.</p>
+                            <p>Now living and working in New Delhi, Kanishk bridges the calm nostalgia of his roots with the sharp, high-contrast, energetic aesthetics of urban Gen Z design. With session dept., he fuses sculptural design with everyday smoking essentials.</p>
+                            
+                            <blockquote class="founder-quote">
+                                "We don't design utility objects; we design the space and state of mind around them. A break is merely time passing. A session is a conscious ritual."
+                            </blockquote>
+                            
+                            <p>Every curved silhouette, raw clay finish, and design drop is curated personally under Kanishk's vision to make premium accessories accessible for contemporary creatives.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Design Pillars
+             ========================================================================== -->
+        <section class="about-intro-section reveal-on-scroll" style="border-top: 1px solid var(--color-cream-border); padding-top: 80px;">
+            <h3 style="font-family: var(--font-display); font-size: 2.2rem; text-align: center; margin-bottom: 60px; text-transform: lowercase;">our design pillars</h3>
+            <div class="journal-grid">
+                <!-- Pillar 1 -->
+                <div class="contact-card-box">
+                    <div class="contact-card-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                    <h3 class="contact-card-title">01 / tactile presence</h3>
+                    <p class="contact-card-text">We select materials—heavy stone ceramics, matte borosilicate glass, organic hemp—that demand touch. Moving away from plastic and shiny metals towards grounding textures.</p>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="contact-card-box">
+                    <div class="contact-card-icon"><i class="fa-solid fa-shapes"></i></div>
+                    <h3 class="contact-card-title">02 / bold contrast</h3>
+                    <p class="contact-card-text">Brutalist layout weight, raw typography, signature vibrant lime accents, and warm vintage cream colors. Designing pieces that stand out as art objects on your table.</p>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="contact-card-box">
+                    <div class="contact-card-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+                    <h3 class="contact-card-title">03 / intentional rhythm</h3>
+                    <p class="contact-card-text">Our products and streams promote a lifestyle of pacing oneself. Soundtracks, accessories, and kits designed to stretch a five-minute break into a true slow session.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+         Lo-Fi Sound Player Floating Widget
+         ========================================================================== -->
+    <div class="floating-audio-player" id="floating-audio-player">
+        <div class="player-vinyl-wrapper">
+            <div class="vinyl-disc" id="vinyl-disc"></div>
+            <div class="vinyl-center"></div>
+        </div>
+        <div class="player-controls">
+            <button class="player-toggle-btn" id="player-toggle-btn" title="Play Ambient Music">
+                <i class="fa-solid fa-play" id="player-btn-icon"></i>
+            </button>
+            <div class="player-track-info">
+                <span class="player-track-title" id="player-track-title">lo-fi sessions vol. 1</span>
+                <span class="player-track-desc" id="player-track-desc">lo-fi chill beats</span>
+            </div>
+            <div class="player-visualizer" id="player-visualizer">
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
+            </div>
+        </div>
+        
+        <!-- Audio Stream Element -->
+        <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
+    </div>
+
+    <!-- ==========================================================================
+         Slide-out E-Commerce Cart Drawer
+         ========================================================================== -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3 class="cart-title">your session cart</h3>
+            <button class="btn-close-cart" id="btn-close-cart" title="Close Cart">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items-list" id="cart-items-list">
+            <p class="cart-empty-message">Your cart is currently empty. Get ready for the session.</p>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Shipping</span>
+                <span>FREE</span>
+            </div>
+            <div class="cart-summary-row total">
+                <span>Total</span>
+                <span id="cart-total-price">₹0.00</span>
+            </div>
+            <button class="btn-checkout" id="btn-checkout">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         Checkout Completion Dialog (Modal)
+         ========================================================================== -->
+    <dialog id="checkout-dialog" class="checkout-dialog">
+        <span class="checkout-dialog-icon"><i class="fa-solid fa-circle-check" style="color: var(--color-lime);"></i></span>
+        <h2 class="checkout-dialog-title">order confirmed</h2>
+        <p class="checkout-dialog-text">Nice! Your session materials are locked in. A confirmation email and tracking link have been sent to your device. Stay in session.</p>
+        <button class="btn-close-checkout" id="btn-close-checkout">SWEET</button>
+    </dialog>
+
+    <!-- ==========================================================================
+         Footer & Newsletter Registration Section
+         ========================================================================== -->
+    <footer class="footer-section">
+        <!-- Newsletter Box -->
+        <div class="newsletter-block" id="newsletter">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">stay in <span>session</span></h2>
+                <p class="newsletter-desc">Subscribe to get secret drop notifications, lo-fi session playlists, and access to members-only product collections.</p>
+            </div>
+            <div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="newsletter-input-wrapper">
+                        <input type="email" class="newsletter-input" placeholder="enter your email address" required aria-label="Email Address">
+                    </div>
+                    <button class="btn-subscribe" type="submit">SUBSCRIBE</button>
+                </form>
+                <div class="newsletter-feedback" id="newsletter-feedback"></div>
+            </div>
+        </div>
+
+        <!-- Secondary links -->
+        <div class="footer-nav-block">
+            <div class="footer-brand-info">
+                <a href="index.html" class="footer-logo">session dept<span class="logo-dot"></span></a>
+                <p class="footer-tagline">Making smoking accessories for a modern, creative generation. Slowing down, in style.</p>
+                <div class="footer-socials">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="footer-col-title">explore</h3>
+                <ul class="footer-links-list">
+                    <li><a href="index.html#shop" class="footer-link">Shop All</a></li>
+                    <li><a href="about.html" class="footer-link">About & Philosophy</a></li>
+                    <li><a href="index.html#builder" class="footer-link">Session Builder</a></li>
+                    <li><a href="journal.html" class="footer-link">Journal</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer-col-title">support</h3>
+                <ul class="footer-links-list">
+                    <li><a href="#" class="footer-link">F.A.Q.</a></li>
+                    <li><a href="#" class="footer-link">Shipping & Returns</a></li>
+                    <li><a href="#" class="footer-link">Care Guide</a></li>
+                    <li><a href="#" class="footer-link">Wholesale</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer-col-title">contact</h3>
+                <div class="footer-contact-info">
+                    <p>Got questions or feedback?</p>
+                    <p>Shoot us a text or email:</p>
+                    <p>Email: <span>sessions@sessiondept.com</span></p>
+                    <p>Direct: <span>+91 9102395579</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright / Legal credits -->
+        <div class="footer-credits">
+            <div class="credits-container">
+                <div class="credits-text">&copy; 2026 session dept. all rights reserved. stay in <span>session</span>.</div>
+                <div class="credits-links">
+                    <a href="#" class="credits-link">privacy policy</a>
+                    <a href="#" class="credits-link">terms of service</a>
+                    <a href="#" class="credits-link">compliance 21+</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         Sleek Live Chat Widget (Tawk.to inspired auto-bot)
+         ========================================================================== -->
+    <div class="chat-widget" id="chat-widget">
+        <!-- Chat Bubble Button -->
+        <button class="chat-bubble" id="chat-bubble" title="Open Session Support Chat">
+            <i class="fa-solid fa-comments"></i>
+            <span class="chat-badge" id="chat-badge">1</span>
+        </button>
+        
+        <!-- Chat Window Box -->
+        <div class="chat-window" id="chat-window">
+            <!-- Header -->
+            <div class="chat-header-bar">
+                <div class="chat-agent-info">
+                    <div class="chat-agent-avatar">SD</div>
+                    <div class="chat-agent-status">
+                        <span class="chat-agent-name">Session Support</span>
+                        <span class="chat-status-text"><span class="chat-status-dot"></span>Online</span>
+                    </div>
+                </div>
+                <button class="chat-minimize-btn" id="chat-minimize-btn" title="Minimize Chat">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+            </div>
+            
+            <!-- Messages List -->
+            <div class="chat-messages-area" id="chat-messages-area">
+                <!-- Welcome greeting loaded dynamically -->
+            </div>
+            
+            <!-- Input Bar -->
+            <form class="chat-input-bar" id="chat-input-form">
+                <input type="text" id="chat-user-input" class="chat-input-field" placeholder="ask about shipping, papers, bong..." required autocomplete="off">
+                <button type="submit" class="chat-send-btn" title="Send Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
