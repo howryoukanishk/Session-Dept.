@@ -2846,7 +2846,7 @@ body.dark-mode-sections .mobile-nav-toggle:hover {
 }
 
 /* 2. Responsive Styling overrides for Viewports below 768px */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     html, body {
         overflow-x: hidden;
         width: 100%;
