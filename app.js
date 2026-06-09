@@ -488,17 +488,19 @@ const playlistKeys = ["lofi", "techno", "ambient"];
 function initAmbientPlayer() {
     const audio = document.getElementById("ambient-audio");
     const toggleBtn = document.getElementById("player-toggle-btn");
+    const toggleBtnMobile = document.getElementById("player-toggle-btn-mobile");
     const headerToggleBtn = document.getElementById("playlist-toggle-btn");
     const btnIcon = document.getElementById("player-btn-icon");
+    const btnIconMobile = document.getElementById("player-btn-icon-mobile");
     const vinyl = document.getElementById("vinyl-disc");
     const visualizerBars = document.querySelectorAll(".visualizer-bar");
     const playerCapsule = document.getElementById("floating-audio-player");
-    const prevBtn = document.getElementById("player-prev-btn");
-    const nextBtn = document.getElementById("player-next-btn");
+    const prevBtnMobile = document.getElementById("player-prev-btn-mobile");
+    const nextBtnMobile = document.getElementById("player-next-btn-mobile");
     const progressBarMobile = document.getElementById("player-progress-bar-mobile");
-    const timelineMobile = document.querySelector(".player-timeline-mobile");
+    const timelineMobile = document.getElementById("player-timeline-mobile");
 
-    if (!audio || !toggleBtn) return;
+    if (!audio) return;
 
     // Keep floating capsule hidden slightly after loading, then show
     if (playerCapsule) {
@@ -507,8 +509,13 @@ function initAmbientPlayer() {
         }, 1500);
     }
 
-    // Sync toggles
-    toggleBtn.addEventListener("click", () => toggleAudioPlayback());
+    // Bind play/pause clicks
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => toggleAudioPlayback());
+    }
+    if (toggleBtnMobile) {
+        toggleBtnMobile.addEventListener("click", () => toggleAudioPlayback());
+    }
     if (headerToggleBtn) {
         headerToggleBtn.addEventListener("click", () => toggleAudioPlayback());
     }
@@ -534,8 +541,8 @@ function initAmbientPlayer() {
     });
 
     // Skip controls for mobile audio player
-    if (prevBtn) {
-        prevBtn.addEventListener("click", (e) => {
+    if (prevBtnMobile) {
+        prevBtnMobile.addEventListener("click", (e) => {
             e.stopPropagation();
             currentTrackIndex = (currentTrackIndex - 1 + playlistKeys.length) % playlistKeys.length;
             const trackKey = playlistKeys[currentTrackIndex];
@@ -566,8 +573,8 @@ function initAmbientPlayer() {
         });
     }
 
-    if (nextBtn) {
-        nextBtn.addEventListener("click", (e) => {
+    if (nextBtnMobile) {
+        nextBtnMobile.addEventListener("click", (e) => {
             e.stopPropagation();
             currentTrackIndex = (currentTrackIndex + 1) % playlistKeys.length;
             const trackKey = playlistKeys[currentTrackIndex];
@@ -626,6 +633,7 @@ function initAmbientPlayer() {
         if (audio.paused) {
             audio.play().then(() => {
                 if (btnIcon) btnIcon.className = "fa-solid fa-pause";
+                if (btnIconMobile) btnIconMobile.className = "fa-solid fa-pause";
                 if (vinyl) vinyl.classList.add("playing");
                 visualizerBars.forEach(bar => bar.classList.add("playing"));
                 if (headerToggleBtn) headerToggleBtn.classList.add("hovered");
@@ -635,6 +643,7 @@ function initAmbientPlayer() {
         } else {
             audio.pause();
             if (btnIcon) btnIcon.className = "fa-solid fa-play";
+            if (btnIconMobile) btnIconMobile.className = "fa-solid fa-play";
             if (vinyl) vinyl.classList.remove("playing");
             visualizerBars.forEach(bar => bar.classList.remove("playing"));
             if (headerToggleBtn) headerToggleBtn.classList.remove("hovered");
@@ -645,6 +654,7 @@ function initAmbientPlayer() {
 function syncPlaylistWithBuilder(soundType) {
     const audio = document.getElementById("ambient-audio");
     const titleEl = document.getElementById("player-track-title");
+    const titleElMobile = document.getElementById("player-track-title-mobile");
     const descEl = document.getElementById("player-track-desc");
     const playlist = PLAYLISTS[soundType];
 
@@ -661,16 +671,19 @@ function syncPlaylistWithBuilder(soundType) {
     // Load new audio source
     audio.src = playlist.src;
     if (titleEl) titleEl.innerText = playlist.title;
+    if (titleElMobile) titleElMobile.innerText = playlist.title;
     if (descEl) descEl.innerText = playlist.desc;
 
     // Replay if it was previously playing
     if (wasPlaying) {
         audio.play().then(() => {
             const btnIcon = document.getElementById("player-btn-icon");
+            const btnIconMobile = document.getElementById("player-btn-icon-mobile");
             const vinyl = document.getElementById("vinyl-disc");
             const visualizerBars = document.querySelectorAll(".visualizer-bar");
             const headerToggleBtn = document.getElementById("playlist-toggle-btn");
             if (btnIcon) btnIcon.className = "fa-solid fa-pause";
+            if (btnIconMobile) btnIconMobile.className = "fa-solid fa-pause";
             if (vinyl) vinyl.classList.add("playing");
             visualizerBars.forEach(bar => bar.classList.add("playing"));
             if (headerToggleBtn) headerToggleBtn.classList.add("hovered");
@@ -682,25 +695,30 @@ function syncPlaylistWithBuilder(soundType) {
 // 6. Product Category Filtering Layout
 // ==========================================================================
 function initProductFilters() {
-    const filters = document.querySelectorAll(".filter-btn");
+    const filters = document.querySelectorAll(".filter-btn, .filter-btn-mobile");
     
     if (filters.length === 0) return;
 
     filters.forEach(btn => {
         btn.addEventListener("click", () => {
-            // Toggle active category
-            filters.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
             const category = btn.dataset.category;
-            const cards = document.querySelectorAll(".product-card");
+            
+            // Sync all filter buttons active highlights (desktop & mobile)
+            filters.forEach(b => {
+                if (b.dataset.category === category) {
+                    b.classList.add("active");
+                } else {
+                    b.classList.remove("active");
+                }
+            });
 
-            cards.forEach(card => {
+            // Filter desktop cards
+            const desktopCards = document.querySelectorAll(".product-card");
+            desktopCards.forEach(card => {
                 const cardCat = card.dataset.category;
                 
                 if (category === "all" || cardCat === category) {
                     card.style.display = "flex";
-                    // Brief timeout for animation scale opacity
                     setTimeout(() => {
                         card.style.opacity = "1";
                         card.style.transform = "scale(1)";
@@ -711,6 +729,18 @@ function initProductFilters() {
                     setTimeout(() => {
                         card.style.display = "none";
                     }, 300);
+                }
+            });
+
+            // Filter mobile cards
+            const mobileCards = document.querySelectorAll(".product-card-mobile");
+            mobileCards.forEach(card => {
+                const cardCat = card.dataset.category;
+                
+                if (category === "all" || cardCat === category) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
                 }
             });
         });

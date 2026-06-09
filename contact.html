@@ -144,7 +144,8 @@
         <!-- ==========================================================================
              Contact Form & Coordinates Section
              ========================================================================== -->
-        <section class="contact-section reveal-on-scroll">
+        <div class="desktop-only">
+<section class="contact-section reveal-on-scroll">
             <div class="contact-grid">
                 <!-- Left: Sleek GenZ Contact Form -->
                 <div class="contact-form-container">
@@ -215,12 +216,48 @@
                 </div>
             </div>
         </section>
+</div>
+
+            <!-- Mobile Contact Section -->
+            <section class="contact-section-mobile mobile-only" id="contact-mobile">
+                <div class="contact-grid-mobile">
+                    <div class="contact-form-container-mobile">
+                        <h2 class="contact-form-title-mobile">drop a message</h2>
+                        <p class="contact-form-desc-mobile">Fill out the form below. We'll get back to you within 24 hours.</p>
+                        
+                        <form class="contact-form-element-mobile" id="contact-us-form-mobile" aria-label="Contact Us Form Mobile">
+                            <div class="form-group-mobile">
+                                <label for="contact-name-mobile" class="form-label-mobile">your name</label>
+                                <input type="text" id="contact-name-mobile" class="form-input-mobile" placeholder="e.g. Rohan Sharma" required autocomplete="name">
+                            </div>
+                            <div class="form-group-mobile">
+                                <label for="contact-email-mobile" class="form-label-mobile">email address</label>
+                                <input type="email" id="contact-email-mobile" class="form-input-mobile" placeholder="e.g. rohan@gmail.com" required autocomplete="email">
+                            </div>
+                            <div class="form-group-mobile">
+                                <label for="contact-subject-mobile" class="form-label-mobile">subject of inquiry</label>
+                                <input type="text" id="contact-subject-mobile" class="form-input-mobile" placeholder="e.g. Wholesale, order question, feedback..." required autocomplete="off">
+                            </div>
+                            <div class="form-group-mobile">
+                                <label for="contact-message-mobile" class="form-label-mobile">your message</label>
+                                <textarea id="contact-message-mobile" class="form-textarea-mobile" placeholder="what's on your mind? let's session..." required aria-label="Write your message here"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary btn-form-submit-mobile" aria-label="Send your message to support">send message</button>
+                            <div id="contact-form-feedback-mobile" style="font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase; color: var(--color-lime); display: none; margin-top: 15px;" aria-live="polite"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
     </main>
 
     <!-- ==========================================================================
          Lo-Fi Sound Player Floating Widget
          ========================================================================== -->
-    <div class="floating-audio-player" id="floating-audio-player">
+    <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" preload="none"></audio>
+<div class="desktop-only">
+<div class="floating-audio-player" id="floating-audio-player">
         <div class="player-vinyl-wrapper">
             <div class="vinyl-disc" id="vinyl-disc" aria-hidden="true"></div>
             <div class="vinyl-center" aria-hidden="true"></div>
@@ -257,8 +294,31 @@
         </div>
         
         <!-- Audio Stream Element -->
-        <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" preload="none"></audio>
+        
     </div>
+</div>
+
+    <!-- Mobile Audio Player -->
+    <div class="floating-audio-player-mobile mobile-only" id="mobile-audio-player">
+        <div class="mobile-player-controls">
+            <button class="player-nav-btn-mobile" id="player-prev-btn-mobile" aria-label="Previous Track">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button class="player-toggle-btn-mobile" id="player-toggle-btn-mobile" title="Play Ambient Music" aria-label="Play Lo-fi music stream">
+                <i class="fa-solid fa-play" id="player-btn-icon-mobile"></i>
+            </button>
+            <button class="player-nav-btn-mobile" id="player-next-btn-mobile" aria-label="Next Track">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+            <div class="player-track-info-mobile">
+                <span class="player-track-title-mobile" id="player-track-title-mobile">lo-fi sessions vol. 1</span>
+                <div class="player-timeline-mobile" id="player-timeline-mobile">
+                    <div class="player-progress-bar-mobile" id="player-progress-bar-mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- ==========================================================================
          Slide-out E-Commerce Cart Drawer
@@ -302,7 +362,8 @@
     <!-- ==========================================================================
          Footer & Newsletter Registration Section
          ========================================================================== -->
-    <footer class="footer-section">
+    <div class="desktop-only">
+<footer class="footer-section">
         <!-- Newsletter Box -->
         <div class="newsletter-block" id="newsletter">
             <div class="newsletter-content">
@@ -378,6 +439,47 @@
             </div>
         </div>
     </footer>
+</div>
+
+    <!-- Mobile Footer Section -->
+    <footer class="footer-section-mobile mobile-only" id="mobile-footer">
+        <div class="newsletter-block">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">stay in <span>session</span></h2>
+                <p class="newsletter-desc">Subscribe to get secret drop notifications, lo-fi session playlists, and access to members-only product collections.</p>
+            </div>
+            <div>
+                <form class="newsletter-form" id="newsletter-form-mobile" aria-label="Newsletter Subscription Form Mobile">
+                    <div class="newsletter-input-wrapper">
+                        <input type="email" class="newsletter-input" placeholder="enter your email address" required aria-label="Email Address for newsletter">
+                    </div>
+                    <button class="btn-subscribe" type="submit" aria-label="Subscribe to newsletter">SUBSCRIBE</button>
+                </form>
+                <div class="newsletter-feedback" id="newsletter-feedback-mobile" aria-live="polite"></div>
+            </div>
+        </div>
+        <div class="footer-nav-block-mobile">
+            <a href="index.html" class="footer-logo-mobile">session dept<span class="logo-dot"></span></a>
+            <ul class="footer-links-list-mobile">
+                <li><a href="index.html#shop" class="footer-link-mobile">Shop All</a></li>
+                <li><a href="about.html" class="footer-link-mobile">About</a></li>
+                <li><a href="philosophy.html" class="footer-link-mobile">Philosophy</a></li>
+                <li><a href="index.html#builder" class="footer-link-mobile">Session Builder</a></li>
+                <li><a href="journal.html" class="footer-link-mobile">Journal</a></li>
+                <li><a href="faq.html" class="footer-link-mobile">FAQ</a></li>
+                <li><a href="contact.html" class="footer-link-mobile">Contact Us</a></li>
+            </ul>
+            <div class="footer-socials-mobile">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn-mobile" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn-mobile" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-btn-mobile" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+            <div class="footer-credits-mobile">
+                <div class="credits-text-mobile">&copy; 2026 session dept. all rights reserved. stay in <span>session</span>.</div>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- ==========================================================================
          Sleek Live Chat Widget (Tawk.to inspired auto-bot)
@@ -425,11 +527,25 @@
     
     <!-- Local Contact form submission behavior -->
     <script>
+        // Desktop Form Submit
         document.getElementById('contact-us-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const feedback = document.getElementById('contact-form-feedback');
             feedback.style.display = 'block';
             feedback.style.color = 'var(--color-lime-dark)';
+            feedback.innerText = 'SUCCESS! Your message is sent. We will get in touch.';
+            this.reset();
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 5000);
+        });
+        
+        // Mobile Form Submit
+        document.getElementById('contact-us-form-mobile').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('contact-form-feedback-mobile');
+            feedback.style.display = 'block';
+            feedback.style.color = 'var(--color-lime)';
             feedback.innerText = 'SUCCESS! Your message is sent. We will get in touch.';
             this.reset();
             setTimeout(() => {

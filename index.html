@@ -152,7 +152,8 @@
          Hero Section
          ========================================================================== -->
     <main>
-        <section class="hero-section" id="hero">
+        <div class="desktop-only">
+<section class="hero-section" id="hero">
             <div class="hero-content">
                 <div class="hero-tag">est. 2026 / premium gear</div>
                 <h2 class="hero-title">
@@ -183,6 +184,28 @@
                 </div>
             </div>
         </section>
+</div>
+
+            <!-- Mobile Hero Section -->
+            <section class="hero-section-mobile mobile-only" id="hero-mobile">
+                <div class="mobile-hero-content">
+                    <div class="hero-tag">est. 2026 / premium gear</div>
+                    <h2 class="hero-title">
+                        <span>light up.</span>
+                        <span class="hero-title-highlight">slow down.</span>
+                        <span>stay in session.</span>
+                    </h2>
+                    <p class="hero-description">We design smoking accessories for a new generation. Curated designs, high contrast aesthetics, and custom materials to make every break a real session.</p>
+                    <div class="hero-cta-group">
+                        <a href="#shop" class="btn-primary">explore shop</a>
+                        <a href="#builder" class="btn-secondary">build your vibe</a>
+                    </div>
+                    <div class="mobile-hero-media">
+                        <img src="assets/images/smoke_silhouette-mobile.webp" alt="Exhaling smoke forming session dept text" id="hero-img-1-mobile">
+                    </div>
+                </div>
+            </section>
+            
 
         <!-- ==========================================================================
              Endless Text Marquee Banner
@@ -219,7 +242,8 @@
         <!-- ==========================================================================
              Brand Philosophy Section (Dark Mode theme)
              ========================================================================== -->
-        <section class="philosophy-section reveal-on-scroll" id="philosophy">
+        <div class="desktop-only">
+<section class="philosophy-section reveal-on-scroll" id="philosophy">
             <div class="philosophy-container">
                 <div class="philosophy-media">
                     <picture>
@@ -247,11 +271,30 @@
                 </div>
             </div>
         </section>
+</div>
+
+            <!-- Mobile Philosophy Section -->
+            <section class="philosophy-section-mobile mobile-only" id="philosophy-mobile">
+                <div class="mobile-philosophy-container">
+                    <div class="mobile-philosophy-media">
+                        <img src="assets/images/lime_green_poster-mobile.webp" alt="Vibrant neon lime graphic poster session dept" loading="lazy">
+                    </div>
+                    <div class="mobile-philosophy-content">
+                        <span class="philosophy-tag">our philosophy</span>
+                        <h2 class="philosophy-title">artifacts for intentional breaks.</h2>
+                        <p class="philosophy-text">In a culture of endless scrolls and screen glare, session dept. designs physical checkpoints. We craft stoneware ashtrays, custom clay pipes, and slow-burning papers designed to help you exit the digital loop.</p>
+                        <p class="philosophy-text">Each object is a tactical reminder: slow down your tempo, appreciate the material tactile weight, and breathe. We don't believe in productivity gear; we believe in rituals.</p>
+                        <a href="philosophy.html" class="btn-secondary">read our design manifesto</a>
+                    </div>
+                </div>
+            </section>
+            
 
         <!-- ==========================================================================
              Shop / Product Catalog Section
              ========================================================================== -->
-        <section class="shop-section reveal-on-scroll" id="shop">
+        <div class="desktop-only">
+<section class="shop-section reveal-on-scroll" id="shop">
             <div class="shop-header">
                 <div class="shop-title-group">
                     <div class="shop-tag">selected artifacts</div>
@@ -383,13 +426,102 @@
                 </div>
             </div>
         </section>
+</div>
+
+            <!-- Mobile Shop Section -->
+            <section class="shop-section-mobile mobile-only" id="shop-mobile">
+                <div class="shop-container-mobile">
+                    <div class="shop-header-mobile">
+                        <div class="shop-title-group">
+                            <div class="shop-tag">selected artifacts</div>
+                            <h2 class="shop-title">curated gear for the sessions</h2>
+                        </div>
+                    </div>
+                    <div class="shop-filter-bar-mobile">
+                        <button class="filter-btn-mobile active" data-category="all">All</button>
+                        <button class="filter-btn-mobile" data-category="gear">Accessories</button>
+                        <button class="filter-btn-mobile" data-category="merch">Merch</button>
+                    </div>
+                    <div class="product-grid-mobile" id="product-grid-mobile">
+                        <!-- Product 1 -->
+                        <div class="product-card-mobile" data-product-id="1" data-category="gear">
+                            <div class="product-image-wrapper-mobile">
+                                <span class="product-badge-mobile">Best Seller</span>
+                                <img src="assets/images/ashtray_horizontal-mobile.webp" alt="Ceramic green horizontal ashtray" loading="lazy">
+                            </div>
+                            <div class="product-info-mobile">
+                                <h3 class="product-title-mobile">Classic Green Ashtray</h3>
+                                <div class="product-price-mobile">₹2,499.00</div>
+                                <button class="btn-add-cart-mobile" onclick="addToCart(1)">
+                                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Product 2 -->
+                        <div class="product-card-mobile" data-product-id="2" data-category="gear">
+                            <div class="product-image-wrapper-mobile">
+                                <img src="assets/images/papers_vertical-mobile.webp" alt="session dept rolling papers pack" loading="lazy">
+                            </div>
+                            <div class="product-info-mobile">
+                                <h3 class="product-title-mobile">Sessions Rolling Papers (3-Pack)</h3>
+                                <div class="product-price-mobile">₹599.00</div>
+                                <button class="btn-add-cart-mobile" onclick="addToCart(2)">
+                                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Product 3 -->
+                        <div class="product-card-mobile" data-product-id="3" data-category="gear">
+                            <div class="product-image-wrapper-mobile">
+                                <span class="product-badge-mobile">Premium</span>
+                                <img src="assets/images/bong_vertical-mobile.webp" alt="Glass water pipe bong on table" loading="lazy">
+                            </div>
+                            <div class="product-info-mobile">
+                                <h3 class="product-title-mobile">Glass Session Bong</h3>
+                                <div class="product-price-mobile">₹8,999.00</div>
+                                <button class="btn-add-cart-mobile" onclick="addToCart(3)">
+                                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Product 4 -->
+                        <div class="product-card-mobile" data-product-id="4" data-category="merch">
+                            <div class="product-image-wrapper-mobile">
+                                <img src="assets/images/tshirt_back-mobile.webp" alt="session dept graphic tshirt back" loading="lazy">
+                            </div>
+                            <div class="product-info-mobile">
+                                <h3 class="product-title-mobile">Session Dept. Merch Tee & Sticker Pack</h3>
+                                <div class="product-price-mobile">₹3,499.00</div>
+                                <button class="btn-add-cart-mobile" onclick="addToCart(4)">
+                                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Product 5 -->
+                        <div class="product-card-mobile" data-product-id="5" data-category="gear">
+                            <div class="product-image-wrapper-mobile">
+                                <span class="product-badge-mobile">Bundle</span>
+                                <img src="assets/images/welcome_box-mobile.webp" alt="Welcome box containing papers lighter pre-rolls" loading="lazy">
+                            </div>
+                            <div class="product-info-mobile">
+                                <h3 class="product-title-mobile">The Welcome Box Bundle</h3>
+                                <div class="product-price-mobile">₹4,999.00</div>
+                                <button class="btn-add-cart-mobile" onclick="addToCart(5)">
+                                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
 
         <!-- ==========================================================================
              Interactive Session Builder Widget Section
              ========================================================================== -->
         <section class="builder-section reveal-on-scroll" id="builder">
             <!-- Desktop Builder Layout -->
-            <div class="builder-container desktop-builder-layout">
+            <div class="builder-container desktop-builder-layout desktop-only">
                 <div class="builder-header">
                     <div class="builder-tag">custom configurator</div>
                     <h2 class="builder-title">build your custom session vibe</h2>
@@ -504,7 +636,7 @@
 
             <!-- Mobile Configurator Layout -->
             <!-- Mobile Configurator Layout -->
-            <div class="mobile-builder-layout" id="mobile-builder-layout">
+            <div class="mobile-builder-layout mobile-only" id="mobile-builder-layout">
                 <!-- Mobile Progress Steps -->
                 <div class="mobile-step-indicator">
                     <div class="mobile-step-tab active" data-step="1">1. Papers</div>
@@ -566,7 +698,8 @@
         <!-- ==========================================================================
              Stickers / Merchandise Callout Section
              ========================================================================== -->
-        <section class="merch-callout-section reveal-on-scroll">
+        <div class="desktop-only">
+<section class="merch-callout-section reveal-on-scroll">
             <div class="merch-callout-container">
                 <div class="merch-callout-tag">limited releases</div>
                 <h2 class="merch-callout-title">we don't rush, we session</h2>
@@ -594,12 +727,37 @@
                 <a href="#shop" class="btn-primary">shop accessories & merch</a>
             </div>
         </section>
+</div>
+
+            <!-- Mobile Merch Callout Section -->
+            <section class="merch-callout-section-mobile mobile-only" id="merch-callout-mobile">
+                <div class="merch-callout-container">
+                    <div class="merch-callout-tag">limited releases</div>
+                    <h2 class="merch-callout-title">we don't rush, we session</h2>
+                    <p class="merch-callout-text">Rep the brand out in the wild. High weight premium graphic tees, waterproof holographic sticker sheets, and specialized accessories. Collectible drops made in limited numbers.</p>
+                    <div class="merch-carousel-mobile">
+                        <div class="carousel-img-card-mobile">
+                            <img src="assets/images/stickers-mobile.webp" alt="Session Dept stickers collection" loading="lazy">
+                        </div>
+                        <div class="carousel-img-card-mobile">
+                            <img src="assets/images/tshirt_back-mobile.webp" alt="Session Dept graphic t-shirt design" loading="lazy">
+                        </div>
+                        <div class="carousel-img-card-mobile">
+                            <img src="assets/images/welcome_box-mobile.webp" alt="Session Dept welcome gift pack" loading="lazy">
+                        </div>
+                    </div>
+                    <a href="#shop" class="btn-primary">shop accessories & merch</a>
+                </div>
+            </section>
+            
     </main>
 
     <!-- ==========================================================================
          Lo-Fi Sound Player Floating Widget
          ========================================================================== -->
-    <div class="floating-audio-player" id="floating-audio-player">
+    <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" preload="none"></audio>
+<div class="desktop-only">
+<div class="floating-audio-player" id="floating-audio-player">
         <div class="player-vinyl-wrapper">
             <div class="vinyl-disc" id="vinyl-disc" aria-hidden="true"></div>
             <div class="vinyl-center" aria-hidden="true"></div>
@@ -636,8 +794,31 @@
         </div>
         
         <!-- Audio Stream Element -->
-        <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" preload="none"></audio>
+        
     </div>
+</div>
+
+    <!-- Mobile Audio Player -->
+    <div class="floating-audio-player-mobile mobile-only" id="mobile-audio-player">
+        <div class="mobile-player-controls">
+            <button class="player-nav-btn-mobile" id="player-prev-btn-mobile" aria-label="Previous Track">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button class="player-toggle-btn-mobile" id="player-toggle-btn-mobile" title="Play Ambient Music" aria-label="Play Lo-fi music stream">
+                <i class="fa-solid fa-play" id="player-btn-icon-mobile"></i>
+            </button>
+            <button class="player-nav-btn-mobile" id="player-next-btn-mobile" aria-label="Next Track">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+            <div class="player-track-info-mobile">
+                <span class="player-track-title-mobile" id="player-track-title-mobile">lo-fi sessions vol. 1</span>
+                <div class="player-timeline-mobile" id="player-timeline-mobile">
+                    <div class="player-progress-bar-mobile" id="player-progress-bar-mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- ==========================================================================
          Slide-out E-Commerce Cart Drawer
@@ -682,7 +863,8 @@
     <!-- ==========================================================================
          Footer & Newsletter Registration Section
          ========================================================================== -->
-    <footer class="footer-section">
+    <div class="desktop-only">
+<footer class="footer-section">
         <!-- Newsletter Box -->
         <div class="newsletter-block" id="newsletter">
             <div class="newsletter-content">
@@ -756,6 +938,47 @@
             </div>
         </div>
     </footer>
+</div>
+
+    <!-- Mobile Footer Section -->
+    <footer class="footer-section-mobile mobile-only" id="mobile-footer">
+        <div class="newsletter-block">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">stay in <span>session</span></h2>
+                <p class="newsletter-desc">Subscribe to get secret drop notifications, lo-fi session playlists, and access to members-only product collections.</p>
+            </div>
+            <div>
+                <form class="newsletter-form" id="newsletter-form-mobile" aria-label="Newsletter Subscription Form Mobile">
+                    <div class="newsletter-input-wrapper">
+                        <input type="email" class="newsletter-input" placeholder="enter your email address" required aria-label="Email Address for newsletter">
+                    </div>
+                    <button class="btn-subscribe" type="submit" aria-label="Subscribe to newsletter">SUBSCRIBE</button>
+                </form>
+                <div class="newsletter-feedback" id="newsletter-feedback-mobile" aria-live="polite"></div>
+            </div>
+        </div>
+        <div class="footer-nav-block-mobile">
+            <a href="index.html" class="footer-logo-mobile">session dept<span class="logo-dot"></span></a>
+            <ul class="footer-links-list-mobile">
+                <li><a href="index.html#shop" class="footer-link-mobile">Shop All</a></li>
+                <li><a href="about.html" class="footer-link-mobile">About</a></li>
+                <li><a href="philosophy.html" class="footer-link-mobile">Philosophy</a></li>
+                <li><a href="index.html#builder" class="footer-link-mobile">Session Builder</a></li>
+                <li><a href="journal.html" class="footer-link-mobile">Journal</a></li>
+                <li><a href="faq.html" class="footer-link-mobile">FAQ</a></li>
+                <li><a href="contact.html" class="footer-link-mobile">Contact Us</a></li>
+            </ul>
+            <div class="footer-socials-mobile">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn-mobile" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn-mobile" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-btn-mobile" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+            <div class="footer-credits-mobile">
+                <div class="credits-text-mobile">&copy; 2026 session dept. all rights reserved. stay in <span>session</span>.</div>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- ==========================================================================
          Sleek Live Chat Widget (Tawk.to inspired auto-bot)

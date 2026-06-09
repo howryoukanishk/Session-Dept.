@@ -459,7 +459,9 @@
     <!-- ==========================================================================
          Lo-Fi Sound Player Floating Widget
          ========================================================================== -->
-    <div class="floating-audio-player" id="floating-audio-player">
+    <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" preload="none"></audio>
+<div class="desktop-only">
+<div class="floating-audio-player" id="floating-audio-player">
         <div class="player-vinyl-wrapper">
             <div class="vinyl-disc" id="vinyl-disc" aria-hidden="true"></div>
             <div class="vinyl-center" aria-hidden="true"></div>
@@ -496,8 +498,31 @@
         </div>
         
         <!-- Audio Stream Element -->
-        <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" preload="none"></audio>
+        
     </div>
+</div>
+
+    <!-- Mobile Audio Player -->
+    <div class="floating-audio-player-mobile mobile-only" id="mobile-audio-player">
+        <div class="mobile-player-controls">
+            <button class="player-nav-btn-mobile" id="player-prev-btn-mobile" aria-label="Previous Track">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button class="player-toggle-btn-mobile" id="player-toggle-btn-mobile" title="Play Ambient Music" aria-label="Play Lo-fi music stream">
+                <i class="fa-solid fa-play" id="player-btn-icon-mobile"></i>
+            </button>
+            <button class="player-nav-btn-mobile" id="player-next-btn-mobile" aria-label="Next Track">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+            <div class="player-track-info-mobile">
+                <span class="player-track-title-mobile" id="player-track-title-mobile">lo-fi sessions vol. 1</span>
+                <div class="player-timeline-mobile" id="player-timeline-mobile">
+                    <div class="player-progress-bar-mobile" id="player-progress-bar-mobile"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- ==========================================================================
          Slide-out E-Commerce Cart Drawer
@@ -541,7 +566,8 @@
     <!-- ==========================================================================
          Footer & Newsletter Registration Section
          ========================================================================== -->
-    <footer class="footer-section">
+    <div class="desktop-only">
+<footer class="footer-section">
         <!-- Newsletter Box -->
         <div class="newsletter-block" id="newsletter">
             <div class="newsletter-content">
@@ -617,6 +643,47 @@
             </div>
         </div>
     </footer>
+</div>
+
+    <!-- Mobile Footer Section -->
+    <footer class="footer-section-mobile mobile-only" id="mobile-footer">
+        <div class="newsletter-block">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">stay in <span>session</span></h2>
+                <p class="newsletter-desc">Subscribe to get secret drop notifications, lo-fi session playlists, and access to members-only product collections.</p>
+            </div>
+            <div>
+                <form class="newsletter-form" id="newsletter-form-mobile" aria-label="Newsletter Subscription Form Mobile">
+                    <div class="newsletter-input-wrapper">
+                        <input type="email" class="newsletter-input" placeholder="enter your email address" required aria-label="Email Address for newsletter">
+                    </div>
+                    <button class="btn-subscribe" type="submit" aria-label="Subscribe to newsletter">SUBSCRIBE</button>
+                </form>
+                <div class="newsletter-feedback" id="newsletter-feedback-mobile" aria-live="polite"></div>
+            </div>
+        </div>
+        <div class="footer-nav-block-mobile">
+            <a href="index.html" class="footer-logo-mobile">session dept<span class="logo-dot"></span></a>
+            <ul class="footer-links-list-mobile">
+                <li><a href="index.html#shop" class="footer-link-mobile">Shop All</a></li>
+                <li><a href="about.html" class="footer-link-mobile">About</a></li>
+                <li><a href="philosophy.html" class="footer-link-mobile">Philosophy</a></li>
+                <li><a href="index.html#builder" class="footer-link-mobile">Session Builder</a></li>
+                <li><a href="journal.html" class="footer-link-mobile">Journal</a></li>
+                <li><a href="faq.html" class="footer-link-mobile">FAQ</a></li>
+                <li><a href="contact.html" class="footer-link-mobile">Contact Us</a></li>
+            </ul>
+            <div class="footer-socials-mobile">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn-mobile" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn-mobile" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-btn-mobile" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+            <div class="footer-credits-mobile">
+                <div class="credits-text-mobile">&copy; 2026 session dept. all rights reserved. stay in <span>session</span>.</div>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- ==========================================================================
          Sleek Live Chat Widget (Tawk.to inspired auto-bot)
