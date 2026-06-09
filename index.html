@@ -42,7 +42,8 @@
     -->
     
     <!-- Preload Hero Image -->
-    <link rel="preload" fetchpriority="high" as="image" href="assets/images/smoke_silhouette.webp" type="image/webp">
+    <link rel="preload" href="assets/images/smoke_silhouette-mobile.webp" as="image" media="(max-width: 767px)" fetchpriority="high" type="image/webp">
+    <link rel="preload" href="assets/images/smoke_silhouette.webp" as="image" media="(min-width: 768px)" fetchpriority="high" type="image/webp">
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,10 +170,16 @@
             <div class="hero-collage">
                 <div class="collage-badge">stay in session</div>
                 <div class="collage-item collage-item-1">
+                    <picture>
+                    <source srcset="assets/images/smoke_silhouette-mobile.webp" media="(max-width: 767px)" type="image/webp">
                     <img src="assets/images/smoke_silhouette.webp" alt="Exhaling smoke forming session dept text" id="hero-img-1">
+                </picture>
                 </div>
                 <div class="collage-item collage-item-2">
+                    <picture>
+                    <source srcset="assets/images/outdoor_sign-mobile.webp" media="(max-width: 767px)" type="image/webp">
                     <img src="assets/images/outdoor_sign.webp" alt="session dept illuminated outdoor logo sign" id="hero-img-2">
+                </picture>
                 </div>
             </div>
         </section>
@@ -215,7 +222,10 @@
         <section class="philosophy-section reveal-on-scroll" id="philosophy">
             <div class="philosophy-container">
                 <div class="philosophy-media">
+                    <picture>
+                    <source srcset="assets/images/lime_green_poster-mobile.webp" media="(max-width: 767px)" type="image/webp">
                     <img src="assets/images/lime_green_poster.webp" alt="not just a break, it's a session typography poster" id="ph-poster-img">
+                </picture>
                 </div>
                 <div class="philosophy-content">
                     <div class="philosophy-tag">our manifesto</div>
@@ -259,8 +269,14 @@
                 <div class="product-card" data-product-id="1" data-category="gear">
                     <div class="product-image-wrapper">
                         <span class="product-badge">Best Seller</span>
-                        <img src="assets/images/ashtray_horizontal.webp" alt="Ceramic green horizontal ashtray" class="product-img-primary has-hover">
-                        <img src="assets/images/ashtray_topdown.webp" alt="Ceramic green topdown ashtray" class="product-img-hover">
+                        <picture>
+                    <source srcset="assets/images/ashtray_horizontal-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/ashtray_horizontal.webp" alt="Ceramic green horizontal ashtray" class="product-img-primary has-hover">
+                </picture>
+                        <picture>
+                    <source srcset="assets/images/ashtray_topdown-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/ashtray_topdown.webp" alt="Ceramic green topdown ashtray" class="product-img-hover">
+                </picture>
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -278,7 +294,10 @@
                 <!-- Product 2: Sessions Rolling Papers -->
                 <div class="product-card" data-product-id="2" data-category="gear">
                     <div class="product-image-wrapper">
-                        <img src="assets/images/papers_vertical.webp" alt="session dept rolling papers pack" class="product-img-primary">
+                        <picture>
+                    <source srcset="assets/images/papers_vertical-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/papers_vertical.webp" alt="session dept rolling papers pack" class="product-img-primary">
+                </picture>
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -297,7 +316,10 @@
                 <div class="product-card" data-product-id="3" data-category="gear">
                     <div class="product-image-wrapper">
                         <span class="product-badge">Premium</span>
-                        <img src="assets/images/bong_vertical.webp" alt="Glass water pipe bong on table" class="product-img-primary">
+                        <picture>
+                    <source srcset="assets/images/bong_vertical-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/bong_vertical.webp" alt="Glass water pipe bong on table" class="product-img-primary">
+                </picture>
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -315,8 +337,14 @@
                 <!-- Product 4: Session Dept. Merch & Sticker Pack -->
                 <div class="product-card" data-product-id="4" data-category="merch">
                     <div class="product-image-wrapper">
-                        <img src="assets/images/tshirt_back.webp" alt="session dept graphic tshirt back" class="product-img-primary has-hover">
-                        <img src="assets/images/stickers.webp" alt="session dept holographic stickers sheet" class="product-img-hover">
+                        <picture>
+                    <source srcset="assets/images/tshirt_back-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/tshirt_back.webp" alt="session dept graphic tshirt back" class="product-img-primary has-hover">
+                </picture>
+                        <picture>
+                    <source srcset="assets/images/stickers-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/stickers.webp" alt="session dept holographic stickers sheet" class="product-img-hover">
+                </picture>
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -335,7 +363,10 @@
                 <div class="product-card" data-product-id="5" data-category="gear">
                     <div class="product-image-wrapper">
                         <span class="product-badge">Bundle</span>
-                        <img src="assets/images/welcome_box.webp" alt="Welcome box containing papers lighter pre-rolls" class="product-img-primary">
+                        <picture>
+                    <source srcset="assets/images/welcome_box-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/welcome_box.webp" alt="Welcome box containing papers lighter pre-rolls" class="product-img-primary">
+                </picture>
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
@@ -480,13 +511,22 @@
                 <p class="merch-callout-text">Rep the brand out in the wild. High weight premium graphic tees, waterproof holographic sticker sheets, and specialized accessories. Collectible drops made in limited numbers.</p>
                 <div class="merch-carousel">
                     <div class="carousel-img-card">
-                        <img src="assets/images/stickers.webp" alt="Session Dept stickers collection">
+                        <picture>
+                    <source srcset="assets/images/stickers-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/stickers.webp" alt="Session Dept stickers collection">
+                </picture>
                     </div>
                     <div class="carousel-img-card">
-                        <img src="assets/images/tshirt_back.webp" alt="Session Dept graphic t-shirt design">
+                        <picture>
+                    <source srcset="assets/images/tshirt_back-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/tshirt_back.webp" alt="Session Dept graphic t-shirt design">
+                </picture>
                     </div>
                     <div class="carousel-img-card">
-                        <img src="assets/images/welcome_box.webp" alt="Session Dept welcome gift pack">
+                        <picture>
+                    <source srcset="assets/images/welcome_box-mobile.webp" media="(max-width: 767px)" type="image/webp">
+                    <img src="assets/images/welcome_box.webp" alt="Session Dept welcome gift pack">
+                </picture>
                     </div>
                 </div>
                 <a href="#shop" class="btn-primary">shop accessories & merch</a>

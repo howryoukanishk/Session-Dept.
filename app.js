@@ -475,6 +475,24 @@ function initAmbientPlayer() {
     toggleBtn.addEventListener("click", () => toggleAudioPlayback());
     headerToggleBtn.addEventListener("click", () => toggleAudioPlayback());
 
+    // Expand/Collapse Floating Audio Player on mobile
+    const playerVinyl = playerCapsule.querySelector(".player-vinyl-wrapper");
+    if (playerVinyl) {
+        playerVinyl.addEventListener("click", (e) => {
+            if (window.innerWidth < 768) {
+                e.stopPropagation();
+                playerCapsule.classList.toggle("expanded");
+            }
+        });
+    }
+
+    // Collapse player on click outside
+    document.addEventListener("click", (e) => {
+        if (window.innerWidth < 768 && playerCapsule.classList.contains("expanded") && !playerCapsule.contains(e.target)) {
+            playerCapsule.classList.remove("expanded");
+        }
+    });
+
     function toggleAudioPlayback() {
         if (audio.paused) {
             audio.play().then(() => {
