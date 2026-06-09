@@ -87,7 +87,8 @@ body.age-gate-active .custom-cursor-ring {
     display: none !important;
 }
 
-/* Hide mobile bottom navigation on desktop viewports by default */
+/* Global desktop-hide rules for mobile elements */
+.mobile-only,
 .mobile-bottom-nav {
     display: none !important;
 }
@@ -4604,10 +4605,7 @@ body.dark-mode-sections .mobile-nav-toggle:hover {
     outline-offset: 4px;
 }
 
-/* Global desktop-hide rules for mobile configurator and navigation panels */
-.mobile-only {
-    display: none !important;
-}
+
 
 
 
