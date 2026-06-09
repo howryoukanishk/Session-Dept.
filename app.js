@@ -76,8 +76,27 @@ document.addEventListener("DOMContentLoaded", () => {
     initProductFilters();
     initScrollReveal();
     initNewsletterForm();
-    initChatWidget();
     initMobileNav();
+
+    // Defer Chat Widget initialization until user interaction or a 10s timeout
+    let chatLoaded = false;
+    function loadChatWidget() {
+        if (chatLoaded) return;
+        chatLoaded = true;
+        initChatWidget();
+        
+        // Cleanup event listeners
+        window.removeEventListener("scroll", loadChatWidget);
+        window.removeEventListener("click", loadChatWidget);
+        window.removeEventListener("touchstart", loadChatWidget);
+        window.removeEventListener("mousemove", loadChatWidget);
+    }
+    
+    window.addEventListener("scroll", loadChatWidget, { passive: true });
+    window.addEventListener("click", loadChatWidget, { passive: true });
+    window.addEventListener("touchstart", loadChatWidget, { passive: true });
+    window.addEventListener("mousemove", loadChatWidget, { passive: true });
+    setTimeout(loadChatWidget, 10000);
 });
 
 // ==========================================================================

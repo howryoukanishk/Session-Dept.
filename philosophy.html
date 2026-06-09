@@ -41,11 +41,15 @@
     </script>
     -->
     
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- JSON-LD Structured Data: Breadcrumb -->
     <script type="application/ld+json">
@@ -208,7 +212,7 @@
         </div>
         
         <!-- Audio Stream Element -->
-        <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
+        <audio id="ambient-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" preload="none"></audio>
     </div>
 
     <!-- ==========================================================================
@@ -372,6 +376,6 @@
     </div>
 
     <!-- Script Logic -->
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 </body>
 </html>

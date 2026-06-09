@@ -2852,6 +2852,20 @@ body.dark-mode-sections .mobile-nav-toggle:hover {
         width: 100%;
     }
 
+    /* Disable heavy scroll reveal animations and keyframe spins on mobile to speed up paint/LCP */
+    .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .vinyl-disc.playing {
+        animation: none !important;
+    }
+    .custom-cursor, .custom-cursor-ring {
+        display: none !important;
+        pointer-events: none !important;
+    }
+
     /* Mobile Header adjustments */
     .header-container {
         padding: 10px 16px;
