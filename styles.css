@@ -87,6 +87,10 @@ body.age-gate-active .custom-cursor-ring {
     display: none !important;
 }
 
+/* Hide mobile bottom navigation on desktop viewports by default */
+.mobile-bottom-nav {
+    display: none !important;
+}
 
 /* Custom Cursor */
 .custom-cursor {
